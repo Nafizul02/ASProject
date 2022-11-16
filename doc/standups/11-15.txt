@@ -2,3 +2,9 @@ Name: Kazi Samin
 Created Repo, Set up JIRA, Created Roadmap and Established time frame. 
 
 Next: Distribute UI page reponsibilities.
+
+Name: Nishu Sheth
+Had first meeting
+Next:Distribute work
+Blockers: none
+
