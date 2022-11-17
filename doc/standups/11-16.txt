@@ -1,0 +1,4 @@
+Name: Kazi Samin
+Distributed the UI responsibilities
+Next: Research Tables in Android and experiment for Timeline page
+Blockers: None
