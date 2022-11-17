@@ -2,3 +2,8 @@ Name: Kazi Samin
 Distributed the UI responsibilities
 Next: Research Tables in Android and experiment for Timeline page
 Blockers: None
+
+Name: Anusha Karkhanis
+Today: Chose my UI responsibilities
+Next: Work on UI for admin's course edit and delete pages 
+Blockers: None
