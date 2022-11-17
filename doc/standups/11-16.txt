@@ -13,3 +13,8 @@ Name: Chang Ma
 Choose what part to work on
 Next: Work on the course request page and add courses page of the UI
 Blockers:None
+
+Name: Nishu Sheth
+Chose UI responsibilies
+Next: Research/watch videos for assigned responsibilities
+Blockers: None
