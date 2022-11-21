@@ -1,0 +1,5 @@
+
+Name: Kazi Samin
+Nothing
+Next: Research Firebase and integrate into app
+Blockers: None
