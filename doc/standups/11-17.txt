@@ -6,3 +6,8 @@ Blockers: None
 
 Name: Chang Ma
 Nothing
+
+Name: Anusha Karkhanis
+Today: Nothing
+Next: Work on UI
+Blockers: None
