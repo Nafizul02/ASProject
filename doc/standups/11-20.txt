@@ -1,0 +1,4 @@
+Name: Kazi Samin
+Had meeting, researched firebase and integration 
+Next: finalizing common realtime database 
+Blockers: None
