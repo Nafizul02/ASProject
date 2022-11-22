@@ -12,3 +12,8 @@ Name: Anusha Karkhanis
 Today: Nothing
 Next: Work on UI
 Blockers: None
+
+Name: Nishu Sheth
+Today: Worked on Logout
+Next: Work on navigation
+Blockers: None
