@@ -7,3 +7,8 @@ Name: Anusha Karkhanis
 Finalized layout of edit and delete pages
 Next: Work on updating information from Firebase database
 Blockers: None
+
+Name: Chang Ma
+Discuss and finalized firebase database
+Next: Work on the code ofadd course and request generate timeline
+Blockers: None
