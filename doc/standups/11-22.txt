@@ -2,3 +2,8 @@ Name: Kazi Samin
 Finalized Firebase database
 Next: Learn retrieveing data from firebase and formulating data structure to represent retreived and processed data
 Blockers: None
+
+Name: Anusha Karkhanis
+Finalized layout of edit and delete pages
+Next: Work on updating information from Firebase database
+Blockers: None
