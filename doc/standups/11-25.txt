@@ -1,3 +1,8 @@
 Name: Kazi Samin
 Went to Rawad's office hours, solidified base leaf nodes of firebase database
 Next: Learn making tables and firebase data retreival
+
+Name: Anusha Karkhanis
+Attended office hours and cleared up questions about deleting courses
+Next: begin functionality of editing courses
+Blockers: none
