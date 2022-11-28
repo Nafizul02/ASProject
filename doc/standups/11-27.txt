@@ -1,0 +1,3 @@
+Name: Kazi Samin
+clarified design principles 
+Next: create mock User and Course classes
