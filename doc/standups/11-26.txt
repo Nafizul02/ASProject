@@ -1,3 +1,8 @@
 Name: Kazi Samin 
 Nothing
 Next: research table UI and firebase data retreival
+
+Name: Anusha Karkhanis
+Worked on implementing course edit page. Finished code for updating course name, course code, and offering sessions
+Next: Implement editing course prerequisites
+Blockers: None
