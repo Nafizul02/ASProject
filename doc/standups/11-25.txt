@@ -1,0 +1,3 @@
+Name: Kazi Samin
+Went to Rawad's office hours, solidified base leaf nodes of firebase database
+Next: Learn making tables and firebase data retreival
