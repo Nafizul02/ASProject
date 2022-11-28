@@ -1,3 +1,8 @@
 Name: Kazi Samin  
 Nothing
 Next: Research tables and retreival from firebase
+
+Name: Anusha Karkhanis
+Researched how to update information to Firebase database
+Next: Continue researching
+Blockers: None
