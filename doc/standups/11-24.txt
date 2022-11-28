@@ -1,3 +1,8 @@
 Name: Kazi Samin
 Tackled design discrepancies
 Next: Go to Rawad's office hours for questions
+
+Name: Anusha Karkhanis
+Researched more about Firebase
+Next: Attend office hours for clarification
+Blockers: None
