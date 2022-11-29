@@ -14,6 +14,6 @@ Blockers: None
 
 
 Name: Chang Ma
-Go to office hours for questions
+Finishing my part for the project
 Next: finish my part for the project
 Blockers:None
