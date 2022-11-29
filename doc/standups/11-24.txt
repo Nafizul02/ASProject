@@ -6,3 +6,8 @@ Name: Anusha Karkhanis
 Researched more about Firebase
 Next: Attend office hours for clarification
 Blockers: None
+
+Name: Nishu Sheth
+Today: Worked on implementing code for displaying nested data
+Next: Go to office hours for questions
+Blockers: None
