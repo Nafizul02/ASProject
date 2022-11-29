@@ -6,3 +6,8 @@ Name: Anusha Karkhanis
 Worked on implementing course edit page. Finished code for updating course name, course code, and offering sessions
 Next: Implement editing course prerequisites
 Blockers: None
+
+Name: Nishu Sheth
+Today: Continued to work on taken courses display page
+Next: Watch lecture about refactoring login page
+Blockers: None
