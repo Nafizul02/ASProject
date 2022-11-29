@@ -11,3 +11,8 @@ Name: Nishu Sheth
 Today: Continued to work on taken courses display page
 Next: Watch lecture about refactoring login page
 Blockers: None
+
+Name: Chang Ma
+Testing code
+Next: fix bugs and errors
+Blockers: None
