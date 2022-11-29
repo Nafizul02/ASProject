@@ -6,3 +6,8 @@ Name: Anusha Karkhanis
 Researched how to update information to Firebase database
 Next: Continue researching
 Blockers: None
+
+Name: Nishu Sheth
+Today: Did more research on displaying nested data from firebase
+Next: Work on implementing code for displaying data from firebase
+Blockers: None
