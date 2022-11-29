@@ -11,3 +11,9 @@ Name: Nishu Sheth
 Today: Did more research on displaying nested data from firebase
 Next: Work on implementing code for displaying data from firebase
 Blockers: None
+
+
+Chang Ma
+Researched and wrote codes about retrieving data
+Next:finish the code for adding course and request generatetimeline
+Blockers:None
