@@ -6,3 +6,8 @@ Name: Anusha Karkhanis
 Finished implementing the editing of course prerequisites
 Next: Begin course delete page
 Blockers: None
+
+Name: Nishu Sheth
+Today: Finished implement code to display courses taken by student
+Next: improve UI for courses taken page
+Blockers: None
