@@ -6,3 +6,8 @@ Name: Anusha Karkhanis
 Attended office hours and cleared up questions about deleting courses
 Next: begin functionality of editing courses
 Blockers: none
+
+Name: Nishu Sheth
+Today: Went to office hours and got clalification on questions
+Next: Finish implementing code for displaying courses
+Blockers: None
