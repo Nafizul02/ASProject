@@ -1,5 +1,6 @@
 package com.example.schedulab;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -72,5 +73,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void GeneratePage(View view) {
+        Intent i = new Intent(MainActivity.this, RequestTimeline.class);
+        startActivity(i);
+    }
+    public void AddPage(View view) {
+        Intent i = new Intent(MainActivity.this, AddCourse.class);
+        startActivity(i);
     }
 }

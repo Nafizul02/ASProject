@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="Enter_The_Course_Code">Enter The Course Code</string>
+    <string name="Add">Add </string>
+    <string name="Add_Course">Add Courses </string>
+    <string name="Back">Back</string>
+
+    <string name="Generate_Timeline">Generate Timeline</string>
+    <string name="Generate">Generate</string>
+    <string name="Enter_All_The_Course_Code">Enter all the course code you want to take (separated by ",")</string>
+
+    <string name="Example">Sample: CSCA08,MATA31,CSCA48 </string>
 </resources>
