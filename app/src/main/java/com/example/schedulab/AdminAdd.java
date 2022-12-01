@@ -3,6 +3,7 @@ package com.example.schedulab;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,12 +37,23 @@ public class AdminAdd extends AppCompatActivity {
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Courses");
 
+    private Button back_to_all;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add);
+
+        back_to_all = findViewById(R.id.back);
+        back_to_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_add = new Intent(AdminAdd.this, AllCourses.class);
+                startActivity(intent_add);
+            }
+        });
 
         editTextName = findViewById(R.id.course_name);
         editTextCode = findViewById(R.id.course_code);
