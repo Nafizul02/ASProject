@@ -36,6 +36,22 @@ public class Course {
         return sessions;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrereqs(ArrayList<String> prereqs) {
+        this.prereqs = prereqs;
+    }
+
+    public void setSessions(Map<String, Boolean> sessions) {
+        this.sessions = sessions;
+    }
+
     @Override
     public String toString() {
         return "Course{" +

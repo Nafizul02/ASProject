@@ -2,19 +2,16 @@ package com.example.schedulab;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.schedulab.databinding.ActivityGenerateTimelineBinding;
-import com.example.schedulab.databinding.ActivityGenerateTimelineBinding;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,29 +19,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
+
 public class GenerateTimeline extends AppCompatActivity {
 
     User user;
-
+    ArrayList<Pair<String,String>> tableData = new ArrayList<Pair<String, String>>();
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     String currentDate=sdf.format(new Date());
-
+    ArrayList<String> coursesTaken = new ArrayList<String>();
     DatabaseReference UserRef;
     DatabaseReference CourseRef;
-    ArrayList<String> coursesTaken = new ArrayList<String>();
-    String Uid = "n16PeY7fz4cIgWy7xtupfiMyVHA2";
+    String Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
     FirebaseUser fUser;
+
+    private interface FirebaseCallback{
+        void onCallback(ArrayList<String> list);
+    }
 
     private ActivityGenerateTimelineBinding binding;
     @Override
@@ -52,6 +51,13 @@ public class GenerateTimeline extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityGenerateTimelineBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_generate_timeline);
+
+        final RecyclerView recyclerView = findViewById(R.id.timelineView);
+
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(GenerateTimeline.this);
+        recyclerView.setLayoutManager(llm);
+        recyclerView.setAdapter(new TimelineAdapter(tableData,this));
 
         //fUser = FirebaseAuth.getInstance().getCurrentUser();
         //Uid = fUser.getUid();
@@ -62,34 +68,24 @@ public class GenerateTimeline extends AppCompatActivity {
         Intent i=getIntent();
         Bundle bundle = i.getExtras();
         String s = bundle.getString("input");
-*/
-        UserRef.addValueEventListener(new ValueEventListener() {//THIS WORKS
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot users : snapshot.getChildren()){
-                    Map<String, Object> courseMap = (HashMap<String, Object>) users.getValue();
-                    String fullName = (String)courseMap.get("fullName");
+        */
 
-                    Log.d("check",fullName);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-
+        /*
+        public void getCoursesTakenFromFirebae
         UserRef.addValueEventListener(new ValueEventListener() {//THIS WORKS
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot users : snapshot.getChildren()){
                     Map<String, Object> userMap = (HashMap<String, Object>) users.getValue();
                     //String fullName = (String)userMap.get("fullName");
-                    if(users.child("key").equals(Uid))
-                     coursesTaken = (ArrayList<String>)  userMap.get("coursesTaken");
+                    if(users.child("key").equals(Uid)) {
+                        coursesTaken = (ArrayList<String>) userMap.get("coursesTaken");
+                        Log.d("gotcoursesTaken",coursesTaken.get(0));
 
-                    Log.d("check",coursesTaken.get(0));
+                    }
+                    //Log.d("check",coursesTaken.get(0));
                 }
             }
 
@@ -98,28 +94,73 @@ public class GenerateTimeline extends AppCompatActivity {
 
             }
         });
+*/
 
-        UserRef.child(Uid).addValueEventListener(new ValueEventListener() {//This doesn't work
+
+
+
+
+
+        String s = "CSCB07,CSCB63,CSCB09";
+        ArrayList<Course> allCourses = new ArrayList<Course>();
+
+        UserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user = snapshot.getValue(User.class);
-                Log.d("checkCourseTaken", user.getFullName());
 
-                //for(DataSnapshot users : snapshot.getChildren()){
-                  //  if(users.child("key").equals())
-                    //    Log.d("usercheck",users.toString());
-                    //Map<String, Object> userMap = (HashMap<String, Object>) snapshot.getValue();
-                    //ArrayList<String> coursesTaken = snapshot.child("coursesTaken").getValue(ArrayList<String>);
+                //coursesTaken = (ArrayList<String>) snapshot.child(Uid).child("coursesTaken").getValue();
+                Map<String, Object> studentMap = (HashMap<String, Object>) snapshot.child(Uid).getValue();
+                coursesTaken = (ArrayList<String>)studentMap.get("coursesTaken");
+                Log.d("courseTakenSize",coursesTaken.size()+"");
+
+
+            CourseRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    //clear old items from list to add new data
+                    Iterable<DataSnapshot> children = snapshot.getChildren();
+                    //getting all children from users root
+                    for(DataSnapshot child : children){
+                        Course newCourse = child.getValue(Course.class);
+                        allCourses.add(newCourse);
+                    }
+                    String[] courseRequestsList = s.trim().split(",");
+
+                    CourseRequest req =new CourseRequest(courseRequestsList, coursesTaken, allCourses);
+                    ArrayList<Course> reqCourse = new ArrayList<Course>();
+                    reqCourse = req.computeCoursesToTake();
+                    for(Course c: reqCourse)
+                        Log.d("GenerateTimeline","Courses required: "+c.getCode());
+
+
+                    Log.d("time",currentDate);
+                    Log.d("bundle","starting course-session grouping");
+
+                    tableData = bundleCourseAndSession(reqCourse,coursesTaken);
+                    Log.d("bundle","finished course-session grouping. size: "+tableData.size());
+                    for(Pair pair : tableData)
+                        Log.d("GenerateTableData",pair.first.toString()+" "+pair.second.toString());
+
+                    recyclerView.setAdapter(new TimelineAdapter(tableData, GenerateTimeline.this));
                 }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+        //Log.d("checkAllCourses", allCourses.get(0).getCode());
         //coursesTaken=user.getCoursesTaken();
-
+/*
         ArrayList<String> c1pre = new ArrayList<String>();//A08
         c1pre.add("none");
         Map<String, Boolean> c1sess = new HashMap<>();
@@ -194,8 +235,9 @@ public class GenerateTimeline extends AppCompatActivity {
         c9sess.put("bWinter", true);
         c9sess.put("cSummer", false);
         Course c9 = new Course("CSCC63","C63",c9pre,c9sess);
-
-        ArrayList<Course> allCourses = new ArrayList<Course>();
+*/
+        //ArrayList<Course> allCourses = new ArrayList<Course>();
+        /*
         allCourses.add(c1);
         allCourses.add(c2);
         allCourses.add(c3);
@@ -205,13 +247,17 @@ public class GenerateTimeline extends AppCompatActivity {
         allCourses.add(c7);
         allCourses.add(c8);
         allCourses.add(c9);
-        String[] courseRequestsList={"CSCC24","CSCC63"};
+
+
+
 
         //ArrayList<String> coursesTaken = new ArrayList<String>();
         coursesTaken.add("CSCA08");
         coursesTaken.add("CSCA48");
         coursesTaken.add("CSCA67");
 
+         */
+        /*String[] courseRequestsList = s.trim().split(",");
 
         if (coursesTaken.size()==0)
             Log.d("coursesTaken", "0 courses taken");
@@ -226,6 +272,7 @@ public class GenerateTimeline extends AppCompatActivity {
         ArrayList<Pair<String,String>> tableData = bundleCourseAndSession(reqCourse);
         for(Pair pair : tableData)
             Log.d("GenerateTableData",pair.first.toString()+" "+pair.second.toString());
+        */
         binding.backbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -233,16 +280,17 @@ public class GenerateTimeline extends AppCompatActivity {
             }
         });
 
+
     }
 
     public int getSemester(){
         int month = Integer.parseInt(currentDate.substring(0,2));
         if(month<=4) //Jan,Feb,Mar,April
-            return 0;
-        else if (month<=8) //May,Jun,Jul,Aug
             return 1;
-        else //Sep,Oct,Nov,Dec
+        else if (month<=8) //May,Jun,Jul,Aug
             return 2;
+        else //Sep,Oct,Nov,Dec
+            return 0;
     }
 
     public boolean canBeTaken(Course course, ArrayList<String> coursesTaken){
@@ -263,22 +311,21 @@ public class GenerateTimeline extends AppCompatActivity {
         //Log.d("eligibleSuccess",courseCode+" can be taken");
         return true;
     }
-
-    @SuppressLint("SuspiciousIndentation")
-    public ArrayList<Pair<String, String>> bundleCourseAndSession(ArrayList<Course> coursesWanted){
+    // 6 courses per semester???????
+    public ArrayList<Pair<String, String>> bundleCourseAndSession(ArrayList<Course> coursesWanted,ArrayList<String> coursesTaken){
         ArrayList<String> temp = new ArrayList<String>();
-        temp=coursesTaken;
+        temp.addAll(coursesTaken);
         int addYear=0;
         ArrayList<Pair<String,String>> courseBundle = new ArrayList<Pair<String,String>>();
         int sems = getSemester();
         while(coursesWanted.size()>0){
-            //Log.d("courseWantedLoop","Size>0");
+            Log.d("courseWantedLoop",coursesWanted.size()+""+coursesWanted.get(0));
             for(int i=0;i<3;i++){
                 if(!(coursesWanted.size()>0))
                     break;
                 i+=sems;
                 sems=0;
-                String coursesTaken="";
+                String cTaken="";
                 String currentSession;
                 String session;
                 if(i==0){
@@ -296,7 +343,7 @@ public class GenerateTimeline extends AppCompatActivity {
                 int currentYear = Integer.parseInt(currentDate.substring(6));
                 currentSession+=currentYear+addYear;
                 currentSession+=" :";
-                //Log.d("semesterLoop","i: "+i);
+                Log.d("semesterLoop","i: "+i);
 
                 Iterator itr = coursesWanted.iterator();
                 ArrayList<String> toBeTemped = new ArrayList<String>();
@@ -307,19 +354,20 @@ public class GenerateTimeline extends AppCompatActivity {
 
                     boolean sessionMatched = course.getSessions().get(session);
                     boolean eligible = canBeTaken(course,temp);
-                    //Log.d("sessionreport",currentSession+": "+sessionMatched);
-                    //Log.d("eligibilityreport","course can be taken: "+eligible);
+                    Log.d("sessionreport",currentSession+": "+sessionMatched);
+                    Log.d("eligibilityreport","course can be taken: "+eligible);
                     if(sessionMatched && eligible){
-                        coursesTaken+=course.getCode()+", ";
+                        cTaken+=course.getCode()+", ";
                         toBeTemped.add(course.getCode());
-                        //Log.d("deletecourse","deleted "+course.getCode());
+                        Log.d("deletecourse","deleted "+course.getCode());
                         itr.remove();
                     }
                 }
                 for(String code : toBeTemped)
                     temp.add(code);
-                Pair<String,String> pair = new Pair<String,String>(currentSession,coursesTaken.
-                        substring(0,coursesTaken.length()-2));
+                if(cTaken.length()>3)
+                    cTaken=cTaken.substring(0,cTaken.length()-2);
+                Pair<String,String> pair = new Pair<String,String>(currentSession,cTaken);
                 courseBundle.add(pair);
                 if(i==2)
                     addYear++;
