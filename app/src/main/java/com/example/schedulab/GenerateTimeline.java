@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.schedulab.databinding.ActivityGenerateTimelineBinding;
+//import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,14 +34,12 @@ import java.util.Map;
 public class GenerateTimeline extends AppCompatActivity {
 
 
-    //User user;
     ArrayList<Pair<String,String>> tableData = new ArrayList<Pair<String, String>>();
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     String currentDate=sdf.format(new Date());
     ArrayList<String> coursesTaken = new ArrayList<String>();
     DatabaseReference UserRef;
     DatabaseReference CourseRef;
-    String Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
     FirebaseUser fUser;
 
     private interface FirebaseCallback{
@@ -60,6 +59,8 @@ public class GenerateTimeline extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(GenerateTimeline.this);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(new TimelineAdapter(tableData,this));
+
+        String Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
 
         //fUser = FirebaseAuth.getInstance().getCurrentUser();
         //Uid = fUser.getUid();

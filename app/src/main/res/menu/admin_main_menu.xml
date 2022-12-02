@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single" >
+
+        <item android:id="@+id/nav_allCourses" android:title="All Courses" android:icon="@drawable/ic_baseline_list_alt_24"
+            />
+
+        <item android:id="@+id/nav_add" android:title="Add Course" android:icon="@drawable/ic_baseline_add_circle_24"
+            />
+
+        <item android:id="@+id/nav_edit" android:title="Edit Course" android:icon="@drawable/ic_baseline_edit_24"
+            />
+
+        <item android:id="@+id/nav_delete" android:title="Delete Course" android:icon="@drawable/ic_baseline_delete_24"
+            />
+
+        <item android:id="@+id/nav_logout" android:title="Logout" android:icon="@drawable/ic_baseline_logout_24"
+            />
+
+    </group>
+</menu>
