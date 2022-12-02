@@ -37,6 +37,7 @@
     },
     {
       "client_info": {
+
         "mobilesdk_app_id": "1:1001204941894:android:bb2cac6007fc30e9227647",
         "android_client_info": {
           "package_name": "com.example.myapplication"
@@ -66,6 +67,7 @@
     },
     {
       "client_info": {
+
         "mobilesdk_app_id": "1:1001204941894:android:4f70a5ba3395aa50227647",
         "android_client_info": {
           "package_name": "com.example.schedulab"
