@@ -1,76 +1,144 @@
 package com.example.schedulab;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.telephony.SmsManager;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import com.example.schedulab.refactoring.Contract;
+import com.example.schedulab.refactoring.Model;
+import com.example.schedulab.refactoring.Presenter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import com.example.schedulab.databinding.ActivityMainBinding;
+import java.util.HashMap;
+import java.util.Map;
 
-import android.view.Menu;
-import android.view.MenuItem;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener , Contract.View{
 
-public class MainActivity extends AppCompatActivity {
+    private Contract.Presenter presenter;
+    private TextView register, textView5;
+    private EditText editTextEmail, edittextPassword;
+    private Button signIn;
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        register = (TextView) findViewById(R.id.register);
+        register.setOnClickListener(this);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        textView5 = (TextView) findViewById(R.id.textView5);
+        textView5.setOnClickListener(this);
 
-        setSupportActionBar(binding.toolbar);
+        signIn = (Button) findViewById(R.id.signIn);
+        signIn.setOnClickListener(this);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        editTextEmail = (EditText) findViewById(R.id.email);
+        edittextPassword = (EditText) findViewById(R.id.password);
+        progressBar = findViewById(R.id.progressbar);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        presenter = new Presenter(new Model(), this);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onClick(View view) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (view.getId()) {
+            case R.id.register:
+                startActivity(new Intent(this, Register.class));
+                break;
+            case R.id.signIn:
+                String email = editTextEmail.getText().toString().trim();
+                String password = edittextPassword.getText().toString().trim();
+                if(presenter.loginButtonClicked(email, password)) {
+                    //progressBar.setVisibility(View.VISIBLE);
+                    presenter.login(email, password);
+                }
+                break;
+
+            case R.id.textView5:
+                startActivity(new Intent(this, LoginType.class));
+                break;
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+
+
+
+
+
+
+    @Override
+    public void onSuccess() {
+        startActivity(new Intent(MainActivity.this, showData.class));
+        //progressBar.setVisibility(View.GONE);
+
+
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void onFailure() {
+        Toast.makeText(MainActivity.this, "Failed to login, please check your credentials", Toast.LENGTH_LONG).show();
+       // progressBar.setVisibility(View.GONE);
+
+    }
+
+    @Override
+    public void emailNotValid() {
+        editTextEmail.setError("Please enter a valid email");
+        editTextEmail.requestFocus();
+        return;
+
+    }
+
+    @Override
+    public void emailEmpty() {
+        editTextEmail.setError("Email is required");
+        editTextEmail.requestFocus();
+        return;
+
+    }
+
+    @Override
+    public void passwordEmpty() {
+        edittextPassword.setError("Password is required");
+        edittextPassword.requestFocus();
+        return;
+
+    }
+
+    public String getEmail(){
+        String email = editTextEmail.getText().toString().trim();
+        return email;
+
+    }
+
+    public String getPassword(){
+        String pass = edittextPassword.getText().toString().trim();
+        return pass;
+
     }
 }
