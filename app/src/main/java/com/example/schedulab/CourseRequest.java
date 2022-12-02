@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CourseRequest {
-    ArrayList<Course> targetCourses = new ArrayList<Course>();
-    ArrayList<Course> allCourses = new ArrayList<Course>();
-    ArrayList<Course> coursesTaken = new ArrayList<Course>();;
+    ArrayList<SampleCourse> targetCourses = new ArrayList<SampleCourse>();
+    ArrayList<SampleCourse> allCourses = new ArrayList<SampleCourse>();
+    ArrayList<SampleCourse> coursesTaken = new ArrayList<SampleCourse>();;
 
-    public CourseRequest(String[] courseRequests, ArrayList<String> coursesTaken, ArrayList<Course>
+    public CourseRequest(String[] courseRequests, ArrayList<String> coursesTaken, ArrayList<SampleCourse>
             allCourses) {
         this.allCourses = allCourses;
         Log.d("allCourses","allCourses created");
@@ -31,21 +31,21 @@ public class CourseRequest {
 
 
     }
-    public ArrayList<Course> computeCoursesToTake()
+    public ArrayList<SampleCourse> computeCoursesToTake()
     {
         //Log.d("compute","computing courses to take");
-        ArrayList<Course> courses = new ArrayList<Course>();
-        courses=findReqPrereqs(targetCourses,new ArrayList<Course>());
+        ArrayList<SampleCourse> courses = new ArrayList<SampleCourse>();
+        courses=findReqPrereqs(targetCourses,new ArrayList<SampleCourse>());
         return courses;
     }
 
-    public ArrayList<Course> findReqPrereqs(ArrayList<Course> requestedCourses, ArrayList<Course>
+    public ArrayList<SampleCourse> findReqPrereqs(ArrayList<SampleCourse> requestedCourses, ArrayList<SampleCourse>
             foundCourses)
     {
         //Log.d("prereq","searching prereq");
-        ArrayList<Course> prereqCourses = new ArrayList<Course>();
-        for(Course course : requestedCourses){
-            Course theCourse = course;
+        ArrayList<SampleCourse> prereqCourses = new ArrayList<SampleCourse>();
+        for(SampleCourse course : requestedCourses){
+            SampleCourse theCourse = course;
             while(!coursesTaken.contains(theCourse) //&& theCourse.getPrereqs().get(0).equals("none")
                     && !foundCourses.contains(theCourse)){
                 //Log.d("prereq","searching prereqs for "+theCourse.getCode());
@@ -60,10 +60,10 @@ public class CourseRequest {
         return foundCourses;
     }
 
-    public ArrayList<Course> findCourses(ArrayList<String> courseRequests) {
-        ArrayList<Course> foundCourses = new ArrayList<Course>();
+    public ArrayList<SampleCourse> findCourses(ArrayList<String> courseRequests) {
+        ArrayList<SampleCourse> foundCourses = new ArrayList<SampleCourse>();
         for (String code: courseRequests) {
-            for (Course aCourse : allCourses) {
+            for (SampleCourse aCourse : allCourses) {
                 if (aCourse.getCode().equals(code)){
                     foundCourses.add(aCourse);
                     break;

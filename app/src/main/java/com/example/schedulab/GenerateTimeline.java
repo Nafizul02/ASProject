@@ -33,7 +33,7 @@ import java.util.Map;
 public class GenerateTimeline extends AppCompatActivity {
 
 
-    User user;
+    //User user;
     ArrayList<Pair<String,String>> tableData = new ArrayList<Pair<String, String>>();
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     String currentDate=sdf.format(new Date());
@@ -72,8 +72,8 @@ public class GenerateTimeline extends AppCompatActivity {
         String s = bundle.getString("input");
         */
 
-        String s = "CSCA08,CSCA48";
-        ArrayList<Course> allCourses = new ArrayList<Course>();
+        String s = "CSCA08,CSCA48,CSCB63";
+        ArrayList<SampleCourse> allCourses = new ArrayList<SampleCourse>();
 
         UserRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -92,13 +92,13 @@ public class GenerateTimeline extends AppCompatActivity {
                     Iterable<DataSnapshot> children = snapshot.getChildren();
                     //getting all children from users root
                     for(DataSnapshot child : children){
-                        Course newCourse = child.getValue(Course.class);
+                        SampleCourse newCourse = child.getValue(SampleCourse.class);
                         allCourses.add(newCourse);
                     }
                     String[] courseRequestsList = s.trim().split(",");
 
                     CourseRequest req =new CourseRequest(courseRequestsList, coursesTaken, allCourses);
-                    ArrayList<Course> reqCourse = new ArrayList<Course>();
+                    ArrayList<SampleCourse> reqCourse = new ArrayList<SampleCourse>();
                     reqCourse = req.computeCoursesToTake();
                     if(reqCourse.size()>0)
                     //for(Course c: reqCourse)
@@ -159,7 +159,7 @@ public class GenerateTimeline extends AppCompatActivity {
             return 0;
     }
 
-    public boolean canBeTaken(Course course, ArrayList<String> coursesTaken){
+    public boolean canBeTaken(SampleCourse course, ArrayList<String> coursesTaken){
         List<String> prereq = new ArrayList<String>();
         prereq = course.getPrereqs();
         String courseCode="none";
@@ -178,7 +178,7 @@ public class GenerateTimeline extends AppCompatActivity {
         return true;
     }
     // 6 courses per semester???????
-    public ArrayList<Pair<String, String>> bundleCourseAndSession(ArrayList<Course> coursesWanted,ArrayList<String> coursesTaken){
+    public ArrayList<Pair<String, String>> bundleCourseAndSession(ArrayList<SampleCourse> coursesWanted,ArrayList<String> coursesTaken){
         int maxCoursesPerSession=6;
         ArrayList<String> temp = new ArrayList<String>();
         temp.addAll(coursesTaken);
@@ -215,7 +215,7 @@ public class GenerateTimeline extends AppCompatActivity {
                 ArrayList<String> toBeTemped = new ArrayList<String>();
                 int coursesThisSession = 0;
                 while(itr.hasNext() && coursesThisSession < maxCoursesPerSession){
-                    Course course = (Course)itr.next();
+                    SampleCourse course = (SampleCourse)itr.next();
                     //Log.d("coursecheck","checking: "+course.getCode());
 
 

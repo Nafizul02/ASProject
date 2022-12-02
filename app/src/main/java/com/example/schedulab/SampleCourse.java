@@ -1,24 +1,22 @@
 package com.example.schedulab;
 
-import android.widget.ArrayAdapter;
-
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Course {
+public class SampleCourse {
     String code;
     String name;
     ArrayList<String> prereqs;
     Map<String, Boolean> sessions;
 
-    public Course(String code, String name, ArrayList<String> prereqs, Map<String, Boolean> sessions) {
+    public SampleCourse(String code, String name, ArrayList<String> prereqs, Map<String, Boolean> sessions) {
         this.code = code;
         this.name = name;
         this.prereqs = prereqs;
         this.sessions = sessions;
     }
 
-    public Course(){}
+    public SampleCourse(){}
 
     public String getCode() {
         return code;
