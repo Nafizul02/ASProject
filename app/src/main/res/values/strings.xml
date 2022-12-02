@@ -9,24 +9,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="edit_course">Edit Course</string>
-    <string name="enter_the_name_of_the_course_you_wish_to_edit">Enter the name of the course you wish to edit.</string>
-    <string name="enter_the_new_name">Enter the new name.</string>
-    <string name="enter_the_new_prerequisites">Enter the new prerequisites.</string>
-    <string name="save">Save</string>
-    <string name="enter_the_new_offering_sessions">Enter the new offering sessions.</string>
-    <string name="enter_the_new_course_code">Enter the new course code.</string>
-    <string name="delete_course">Delete Course</string>
-    <string name="delete_course_button">Delete Course</string>
-    <string name="enter_the_name_of_the_course_you_wish_to_delete">Enter the name of the course you wish to delete.</string>
-    <string name="fall">Fall</string>
-    <string name="select_the_new_offering_sessions">Select the new offering sessions.</string>
-    <string name="summer">Summer</string>
-    <string name="winter">Winter</string>
-    <string name="button_to_edit_page">Button to Edit page</string>
-    <string name="enter_the_course_code_you_wish_to_edit">Enter the course code of the course you wish to edit.</string>
-    <string name="enter_the_course_code_of_the_course_you_wish_to_delete">Enter the course code of the course you wish to delete.</string>
-    <string name="enter_all_the_course_prerequisites">Enter all the course prerequisites.</string>
-    <string name="select_all_the_offering_sessions">Select all the offering sessions.</string>
-    <string name="button_to_new_page">Button to new page</string>
+
+
 </resources>

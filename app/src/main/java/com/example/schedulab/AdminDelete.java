@@ -130,7 +130,6 @@ public class AdminDelete extends AppCompatActivity {
                         if (valueToUse.compareTo(courseToDelete) == 0){
 
                             dataRefThird = FirebaseDatabase.getInstance().getReference("Users");
-
                             dataRefThird.child(userKey).child("CoursesTaken").child(keyToUse).removeValue().addOnCompleteListener(new OnCompleteListener() {
                                 @Override
                                 public void onComplete(@NonNull Task task) {

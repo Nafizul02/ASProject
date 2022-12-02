@@ -35,13 +35,13 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+       /* binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
-        });
+        });*/
     }
 
     public void onStart(){
@@ -51,7 +51,7 @@ public class FirstFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, AdminEdit.class); //change to AdminEdit.class if want to go there
+                Intent intent = new Intent(context, AdminDelete.class); //change to AdminEdit.class if want to go there
                 startActivity(intent);
 
             }
