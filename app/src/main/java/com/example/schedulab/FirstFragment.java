@@ -1,6 +1,8 @@
 package com.example.schedulab;
 
+
 import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -59,6 +61,7 @@ public class FirstFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(context, AdminDelete.class); //change to AdminEdit.class if want to go there
                 startActivity(intent);
 
