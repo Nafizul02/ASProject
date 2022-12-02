@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.Query;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -45,9 +46,9 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
 
         add = (Button) findViewById(R.id.AddC);
         add.setOnClickListener(this);
-        //fUser = FirebaseAuth.getInstance().getCurrentUser();
-        //Uid = fUser.getUid();
-        Uid = "n16PeY7fz4cIgWy7xtupfiMyVHA2";
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        Uid = fUser.getUid();
+
     }
 
     //back to main page button

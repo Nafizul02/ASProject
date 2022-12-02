@@ -64,9 +64,8 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
 
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         coursesRef = FirebaseDatabase.getInstance().getReference().child("Courses");
-        //fUser = FirebaseAuth.getInstance().getCurrentUser();
-        //Uid = fUser.getUid();
-        Uid = "n16PeY7fz4cIgWy7xtupfiMyVHA2";
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        Uid = fUser.getUid();
         if (s.equals("")) {
             input.setError("Course code is required");
             input.requestFocus();
