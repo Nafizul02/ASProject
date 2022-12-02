@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.schedulab.databinding.ActivityGenerateTimelineBinding;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +31,7 @@ import java.util.Map;
 
 
 public class GenerateTimeline extends AppCompatActivity {
+
 
     User user;
     ArrayList<Pair<String,String>> tableData = new ArrayList<Pair<String, String>>();
@@ -70,7 +72,7 @@ public class GenerateTimeline extends AppCompatActivity {
         String s = bundle.getString("input");
         */
 
-        String s = "CSCC63,CSCC24";
+        String s = "CSCA08,CSCA48";
         ArrayList<Course> allCourses = new ArrayList<Course>();
 
         UserRef.addValueEventListener(new ValueEventListener() {
@@ -98,19 +100,29 @@ public class GenerateTimeline extends AppCompatActivity {
                     CourseRequest req =new CourseRequest(courseRequestsList, coursesTaken, allCourses);
                     ArrayList<Course> reqCourse = new ArrayList<Course>();
                     reqCourse = req.computeCoursesToTake();
-                    for(Course c: reqCourse)
-                        Log.d("GenerateTimeline","Courses required: "+c.getCode());
+                    if(reqCourse.size()>0)
+                    //for(Course c: reqCourse)
+                    //    Log.d("GenerateTimeline","Courses required: "+c.getCode());
 
+                    {
+                        Log.d("time: ", currentDate);
+                        Log.d("reqC","Required courses: "+reqCourse.size());
+                        Log.d("bundle", "starting course-session grouping");
 
-                    Log.d("time",currentDate);
-                    Log.d("bundle","starting course-session grouping");
+                        tableData = bundleCourseAndSession(reqCourse, coursesTaken);
+                        Log.d("bundle", "finished course-session grouping. size: " + tableData.size());
+                        for (Pair pair : tableData)
+                            Log.d("GenerateTableData", pair.first.toString() + " " + pair.second.toString());
 
-                    tableData = bundleCourseAndSession(reqCourse,coursesTaken);
-                    Log.d("bundle","finished course-session grouping. size: "+tableData.size());
-                    for(Pair pair : tableData)
-                        Log.d("GenerateTableData",pair.first.toString()+" "+pair.second.toString());
+                        recyclerView.setAdapter(new TimelineAdapter(tableData, GenerateTimeline.this));
+                    }
+                    else
+                    {
+                        Log.d("reqC","No Required courses: ");
+                        TextView warningText = (TextView) findViewById(R.id.tvwarning);
 
-                    recyclerView.setAdapter(new TimelineAdapter(tableData, GenerateTimeline.this));
+                        warningText.setText("Courses requested are already taken");
+                    }
                 }
 
                 @Override
