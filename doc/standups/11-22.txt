@@ -12,3 +12,9 @@ Name: Chang Ma
 Discuss and finalized firebase database
 Next: Work on the code ofadd course and request generate timeline
 Blockers: None
+
+Name: Nishu sheth
+Today: Reseached UI for displaying data
+Next: Reseach displaying nested data from firebase
+Blockers: None
+
