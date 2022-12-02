@@ -51,23 +51,7 @@ public class FirstFragment extends Fragment {
                 Intent ah_intent = new Intent(to_admin_h , AllCourses.class);
                 startActivity(ah_intent);
             }
-        });*/
-    }
-
-    public void onStart(){
-        super.onStart();
-        Button btn = (Button) context.findViewById(R.id.button3);
-        btn.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(context, AdminDelete.class); //change to AdminEdit.class if want to go there
-                startActivity(intent);
-
-            }
         });
-
     }
 
 

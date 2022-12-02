@@ -75,6 +75,10 @@ public class AdminAdd extends AppCompatActivity {
         Boolean checkWinter = mWinterCheck.isChecked();
         Boolean checkSummer = mSummerCheck.isChecked();
 
+        /* check if the course name or course code already exists */
+
+        
+
         //should change to something more dynamic later
         String[] PQarray = PQinput.split("\\s*,\\s*"); //removes empty spaces at beginning and end of each single string
         List<String> cPreReqs = Arrays.asList(PQarray);
