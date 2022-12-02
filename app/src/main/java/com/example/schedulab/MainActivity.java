@@ -79,4 +79,13 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void GeneratePage(View view) {
+        Intent i = new Intent(MainActivity.this, RequestTimeline.class);
+        startActivity(i);
+    }
+    public void AddPage(View view) {
+        Intent i = new Intent(MainActivity.this, AddCourse.class);
+        startActivity(i);
+    }
 }

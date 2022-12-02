@@ -16,6 +16,8 @@ import com.example.schedulab.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 
+    Activity to_admin_h;
+
     private FragmentFirstBinding binding;
     Activity context;
 
@@ -26,20 +28,26 @@ public class FirstFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        context = getActivity();
+
+
+        to_admin_h = getActivity();
+
+
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
-       /* binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+    public void onStart(){
+        super.onStart();
+        Button bt_admin = (Button) to_admin_h.findViewById(R.id.to_admin_home);
+        bt_admin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                Intent ah_intent = new Intent(to_admin_h , AllCourses.class);
+                startActivity(ah_intent);
             }
         });*/
     }
@@ -65,5 +73,7 @@ public class FirstFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 
 }
