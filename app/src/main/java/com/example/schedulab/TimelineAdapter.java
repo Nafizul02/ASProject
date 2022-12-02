@@ -32,8 +32,11 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     public void onBindViewHolder(@NonNull TimelineAdapter.TimelineViewHolder holder, int position) {
         Pair<String, String> myPair = suggestions.get(position);
 
-        holder.tvsession.setText("Session: "+myPair.first);
-        holder.tvcourse.setText("Courses: "+myPair.second);
+        holder.tvsession.setText(myPair.first);
+        if(myPair.second.isEmpty())
+        holder.tvcourse.setText("Courses: None");
+        else
+            holder.tvcourse.setText("Courses: "+myPair.second);
 
 
     }
