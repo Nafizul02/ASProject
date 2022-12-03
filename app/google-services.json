@@ -1,13 +1,16 @@
 {
   "project_info": {
     "project_number": "1001204941894",
+
     "firebase_url": "https://authentication-7fb6a-default-rtdb.firebaseio.com",
+
     "project_id": "authentication-7fb6a",
     "storage_bucket": "authentication-7fb6a.appspot.com"
   },
   "client": [
     {
       "client_info": {
+
         "mobilesdk_app_id": "1:1001204941894:android:10832dd551bdb7c9227647",
         "android_client_info": {
           "package_name": "com.example.app"
@@ -67,6 +70,7 @@
     },
     {
       "client_info": {
+
 
         "mobilesdk_app_id": "1:1001204941894:android:4f70a5ba3395aa50227647",
         "android_client_info": {
