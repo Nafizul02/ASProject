@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.schedulab.databinding.ActivityGenerateTimelineBinding;
 //import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,20 +61,20 @@ public class GenerateTimeline extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(new TimelineAdapter(tableData,this));
 
-        String Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
+        //String Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
 
-        //fUser = FirebaseAuth.getInstance().getCurrentUser();
-        //Uid = fUser.getUid();
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        String Uid = fUser.getUid();
 
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         CourseRef = FirebaseDatabase.getInstance().getReference().child("Courses");
-        /*
+
         Intent i=getIntent();
         Bundle bundle = i.getExtras();
         String s = bundle.getString("input");
-        */
 
-        String s = "CSCA08,CSCA48,CSCB63";
+
+        //String s = "CSCA08,CSCA48,CSCB63";
         ArrayList<SampleCourse> allCourses = new ArrayList<SampleCourse>();
 
         UserRef.addValueEventListener(new ValueEventListener() {
@@ -143,7 +144,7 @@ public class GenerateTimeline extends AppCompatActivity {
         binding.backbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GenerateTimeline.this, StudentDefault.class));
+                startActivity(new Intent(GenerateTimeline.this, RequestTimeline.class));
             }
         });
 

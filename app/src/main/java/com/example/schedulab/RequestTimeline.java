@@ -52,7 +52,7 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
     }
 
     public void Back(View view) {
-        Intent i = new Intent(RequestTimeline.this, MainActivity.class);
+        Intent i = new Intent(RequestTimeline.this, StudentDefault.class);
         startActivity(i);
     }
 
@@ -105,7 +105,7 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
                                     }
                                 }
                                 if (part.equals(getLast(s).toUpperCase())&&b==true&&count==c*getNum(s)) {
-                                    Intent i = new Intent(myContext,sample.class);
+                                        Intent i = new Intent(myContext,GenerateTimeline.class);
                                     i.putExtra("input", s);
                                     System.out.println(s);
                                     startActivity(i);

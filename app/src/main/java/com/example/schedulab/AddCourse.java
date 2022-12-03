@@ -54,7 +54,7 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
 
     //back to main page button
     public void Back(View view) {
-        Intent i = new Intent(AddCourse.this, MainActivity.class);
+        Intent i = new Intent(AddCourse.this, StudentDefault.class);
         startActivity(i);
     }
 
