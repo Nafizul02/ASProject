@@ -18,14 +18,17 @@ import com.example.schedulab.refactoring.Presenter;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 
+
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleUnitTest {
 
     @Mock
+
     MainActivity view;
 
     @Mock
     Model model;
+
 
    @Test
     public void testEmptyEmail(){
@@ -36,6 +39,7 @@ public class ExampleUnitTest {
         verify(view).emailEmpty();
 
     }
+
 
     @Test
     public void testEmptyPassword(){

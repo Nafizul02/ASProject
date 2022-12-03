@@ -58,10 +58,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edittextPassword = (EditText) findViewById(R.id.password);
         progressBar = findViewById(R.id.progressbar);
 
+
         presenter = new Presenter(new Model(), this);
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+
 
     }
 
+
+
+
+    private AppBarConfiguration appBarConfiguration;
+    private ActivityMainBinding binding;
 
     @Override
     public void onClick(View view) {
@@ -97,7 +108,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //progressBar.setVisibility(View.GONE);
 
 
+
+
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
     }
+
+
 
     @Override
     public void onFailure() {
@@ -140,5 +163,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String pass = edittextPassword.getText().toString().trim();
         return pass;
 
+    }
+
+    public void GeneratePage(View view) {
+        Intent i = new Intent(MainActivity.this, RequestTimeline.class);
+        startActivity(i);
+    }
+    public void AddPage(View view) {
+        Intent i = new Intent(MainActivity.this, AddCourse.class);
+        startActivity(i);
     }
 }
