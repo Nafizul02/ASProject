@@ -48,4 +48,7 @@
     <string name="student_login__">Student Login</string>
     <string name="logout">Logout</string>
     <string name="courses_taken">Courses Taken</string>
+    <string name="please_select_user_type">Please select user type</string>
+    <string name="administrator">Administrator</string>
+    <string name="todo">TODO</string>
 </resources>

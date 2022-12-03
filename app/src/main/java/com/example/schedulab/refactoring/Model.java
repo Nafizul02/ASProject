@@ -1,6 +1,7 @@
 package com.example.schedulab.refactoring;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,11 +27,12 @@ public class Model implements Contract.Model {
 
 
     private FirebaseAuth mAuth;
-    private int a = 0;
+    private int a=0;
 
 
     @Override
     public boolean checkLogin(String email, String password) {
+        //Model.a = 0;
         //gets string and password from presenter and uses database reference to authenticate then sends back boolean
 
         mAuth = FirebaseAuth.getInstance();
@@ -56,10 +58,34 @@ public class Model implements Contract.Model {
                             }
 
                         }
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                         }
+
                     });
+
+                   /* ref.get().addOnCompleteListener(new
+                                                         OnCompleteListener<DataSnapshot>() {
+                                                             @Override
+                                                             public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                                                 if (!task.isSuccessful()) {
+                                                                     DataSnapshot dataSnapshot = task.getResult();
+                                                                     Map<String, Object> studentMap = (HashMap<String, Object>) dataSnapshot.child(currentuser).getValue();
+                                                                     String type = (String) studentMap.get("type");
+                                                                     if (type.equals("Student")) {
+
+                                                                         a = 1;
+
+                                                                         //startActivity(new Intent(MainActivity.this, showData.class));
+                                                                     }
+
+                                                                 }
+                                                                 else {
+                                                                     Log.i("demo", task.getResult().getValue().toString());
+                                                                 }
+                                                             }
+                                                         });*/
                 }
             }
 

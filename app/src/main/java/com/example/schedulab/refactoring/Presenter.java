@@ -2,6 +2,9 @@ package com.example.schedulab.refactoring;
 
 import android.util.Patterns;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Presenter implements Contract.Presenter {
     private Contract.Model model;
@@ -20,7 +23,7 @@ public class Presenter implements Contract.Presenter {
 
             view.onSuccess();
         }
-        if (!(model.checkLogin(email, password))) {
+        else {
             view.onFailure();
         }
     }
@@ -32,30 +35,21 @@ public class Presenter implements Contract.Presenter {
     @Override
     public boolean loginButtonClicked(String email, String password) {
 
-       /* if(email.isEmpty() && password.isEmpty()){
-            view.passwordEmpty();
-            view.emailEmpty();
-            return false;
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.isEmpty()){
-            view.passwordEmpty();
-            view.emailNotValid();
-            return false;
-        }
-        */
 
         if (email.isEmpty()) {
             view.emailEmpty();
             return false;
         }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        Pattern pattern = Pattern.compile("[a-z]+@[a-z]+\\.com");
+        Matcher matcher = pattern.matcher(email);
+        if (!matcher.matches()) {
             view.emailNotValid();
             return false;
         }
 
-       if (password.isEmpty()) {
+
+
+       if (password.equals("")) {
             view.passwordEmpty();
             return false;
 
