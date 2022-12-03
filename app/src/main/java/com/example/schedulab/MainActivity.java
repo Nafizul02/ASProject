@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import android.telephony.SmsManager;
 import android.util.Patterns;
@@ -15,11 +16,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schedulab.databinding.ActivityMainBinding;
 import com.example.schedulab.refactoring.Contract;
 import com.example.schedulab.refactoring.Model;
 import com.example.schedulab.refactoring.Presenter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +34,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener , Contract.View{
 
@@ -60,10 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         presenter = new Presenter(new Model(), this);
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 
 
     }
