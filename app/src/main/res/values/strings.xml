@@ -10,7 +10,52 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+
     <string name="menu_Open">Open</string>
     <string name="close_menu">Close</string>
+
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="coursepath">CoursePath</string>
+    <string name="slogan">Slogan</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login_as">Login as</string>
+    <string name="student">Student</string>
+    <string name="admin">Admin</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="login_type">Login Type</string>
+    <string name="admin_login">Admin Login</string>
+    <string name="coursepath_">CoursePath</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register_">Register</string>
+    <string name="login_">Login</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="student_registration">Student Registration</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_student_number">Enter Student Number</string>
+    <string name="coursepath__">CoursePath</string>
+    <string name="login__">Login</string>
+    <string name="password__">Password</string>
+    <string name="forgot_password__">Forgot Password?</string>
+    <string name="email_address__">Email Address</string>
+    <string name="register__">Register</string>
+    <string name="student_login__">Student Login</string>
+    <string name="logout">Logout</string>
+    <string name="courses_taken">Courses Taken</string>
+    <string name="please_select_user_type">Please select user type</string>
+    <string name="administrator">Administrator</string>
+    <string name="todo">TODO</string>
+
 
 </resources>

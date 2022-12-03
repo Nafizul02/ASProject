@@ -88,7 +88,7 @@ public class AddCourseModel {
         });
     }
 
-    public void getUserById(String uid, Consumer<User> callback) {
+    public void getUserById(String uid, Consumer<UserAdd> callback) {
         System.out.println("#################");
         System.out.println(uid);
         usersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,7 +96,7 @@ public class AddCourseModel {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@");
                 System.out.println(snapshot);
-                User user = snapshot.getValue(User.class);
+                UserAdd user = snapshot.getValue(UserAdd.class);
                 int i=0;
                 for (String next: user.coursesTaken) {
                     if (next.equalsIgnoreCase("none"))
@@ -113,7 +113,7 @@ public class AddCourseModel {
 
     }
 
-    public void saveUser(String uid, User user, Consumer<Boolean> callback) {
+    public void saveUser(String uid, UserAdd user, Consumer<Boolean> callback) {
         usersRef.child(uid).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

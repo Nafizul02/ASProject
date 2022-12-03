@@ -33,7 +33,7 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
     private DatabaseReference coursesRef, userRef;
     private FirebaseUser fUser;
     private String Uid;
-    private int a;
+    private int a,c,count;
     private boolean b;
     Context myContext = this;
 
@@ -64,13 +64,15 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
 
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
         coursesRef = FirebaseDatabase.getInstance().getReference().child("Courses");
-        fUser = FirebaseAuth.getInstance().getCurrentUser();
-        Uid = fUser.getUid();
+        //fUser = FirebaseAuth.getInstance().getCurrentUser();
+        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //Uid="baJghyfNtINRCrOFxN5QFVjiTSj2";
         if (s.equals("")) {
             input.setError("Course code is required");
             input.requestFocus();
             return;
         } else {
+            getNum1();
             checkValid(s);
         }
 
@@ -78,6 +80,7 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
 
     public void checkValid (String s){
         String[] parts = s.split(",");
+        count=0;
         for (String part : parts) {
             part.toUpperCase().trim();
             Query query = coursesRef.orderByChild("code").equalTo(part.toUpperCase().trim());
@@ -88,15 +91,33 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
                         input.setError("Please enter the correct code");
                         input.requestFocus();
                         b=false;
-                    } else  {
-                        if (part.equals(getLast(s).toUpperCase())&&b==true) {
-                            Intent i = new Intent(myContext,sample.class);
-                            i.putExtra("input", s);
-                            System.out.println(s);
-                            startActivity(i);
-                        }
+                    } else if(b==true) {
+                        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot snp : snapshot.child(Uid).child("coursesTaken").getChildren()) {
+                                    if (snp.getValue().toString().toUpperCase().trim().equals(part)) {
+                                        input.setError("Course already taken");
+                                        input.requestFocus();
+                                        b=false;
+                                    } else {
+                                        count++;
+                                    }
+                                }
+                                if (part.equals(getLast(s).toUpperCase())&&b==true&&count==c*getNum(s)) {
+                                    Intent i = new Intent(myContext,sample.class);
+                                    i.putExtra("input", s);
+                                    System.out.println(s);
+                                    startActivity(i);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
                     }
-                }
+                    }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
@@ -104,8 +125,8 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
                 }
             });
             if(!b) {
-                input.setError("Please enter the correct code");
-                input.requestFocus();
+                //input.setError("Please enter the correct code");
+                //input.requestFocus();
                 break;
             }
         }
@@ -130,6 +151,21 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
             b++;
         }
         return b;
+    }
+    public void getNum1() {
+        c=0;
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snp : snapshot.child(Uid).child("coursesTaken").getChildren()) {
+                        c++;
+                    }
+                }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 }
 

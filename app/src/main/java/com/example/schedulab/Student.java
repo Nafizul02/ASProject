@@ -1,21 +1,15 @@
 package com.example.schedulab;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+public class Student {
+    private String fullName, age, studentId, email;
 
-public class User {
-    private String fullName, age, studentId, email, type;
-    private ArrayList<String> CoursesTaken;
+    public Student(){};
 
-    public User(){}
-
-    public User(String fullName, String age, String studentId, String email, ArrayList<String> CoursesTaken, String type) {
+    public Student(String fullName, String age, String studentId, String email) {
         this.fullName = fullName;
         this.age = age;
         this.studentId = studentId;
         this.email = email;
-        this.CoursesTaken = CoursesTaken;
-        this.type = type;
     }
 
     public String getFullName() {
@@ -48,17 +42,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public ArrayList<String> getCoursesTaken() {
-        return CoursesTaken;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }
