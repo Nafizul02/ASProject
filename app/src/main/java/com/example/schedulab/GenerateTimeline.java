@@ -143,7 +143,7 @@ public class GenerateTimeline extends AppCompatActivity {
         binding.backbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GenerateTimeline.this, FirstFragment.class));
+                startActivity(new Intent(GenerateTimeline.this, StudentDefault.class));
             }
         });
 

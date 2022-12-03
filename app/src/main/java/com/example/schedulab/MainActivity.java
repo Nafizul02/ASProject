@@ -106,19 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onSuccess() {
-        startActivity(new Intent(MainActivity.this, showData.class));
+        startActivity(new Intent(MainActivity.this, StudentDefault.class));
         //progressBar.setVisibility(View.GONE);
 
-
-
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -167,12 +157,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void GeneratePage(View view) {
-        Intent i = new Intent(MainActivity.this, RequestTimeline.class);
-        startActivity(i);
-    }
-    public void AddPage(View view) {
-        Intent i = new Intent(MainActivity.this, AddCourse.class);
-        startActivity(i);
-    }
+
 }

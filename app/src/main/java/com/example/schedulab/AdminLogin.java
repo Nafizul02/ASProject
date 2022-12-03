@@ -105,7 +105,7 @@ public class AdminLogin extends AppCompatActivity implements View.OnClickListene
                             Map<String, Object> studentMap = (HashMap<String, Object>) dataSnapshot.child(currentuser).getValue();
                             String type = (String) studentMap.get("type");
                             if (type.equals("Admin")) {
-                                startActivity(new Intent(AdminLogin.this, Home.class));
+                                startActivity(new Intent(AdminLogin.this, AdminAdd.class));
                             }
 
                         }
