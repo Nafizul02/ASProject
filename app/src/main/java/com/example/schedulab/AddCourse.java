@@ -29,7 +29,7 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
     private EditText courseInput;
     private Button add;
     private DatabaseReference coursesRef, userRef;
-    private FirebaseUser fUser;
+  //  private FirebaseUser fUser;
     Boolean b, b1;
 
     private AddCourseModel model;
@@ -46,8 +46,9 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
 
         add = (Button) findViewById(R.id.AddC);
         add.setOnClickListener(this);
-        fUser = FirebaseAuth.getInstance().getCurrentUser();
-        Uid = fUser.getUid();
+     //   fUser = FirebaseAuth.getInstance().getCurrentUser();
+        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //Uid = "baJghyfNtINRCrOFxN5QFVjiTSj2";
 
     }
 
@@ -74,7 +75,7 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
             }
 
             Course toAdd = allCourses.get(0);
-            model.getUserById(Uid, (User user) -> {
+            model.getUserById(Uid, (UserAdd user) -> {
                 for (int i = 1; i < allCourses.size(); i++) {
                     if (!user.coursesTaken.contains(allCourses.get(i).code)) {
                         courseInput.setError("Missing Prereqs");
