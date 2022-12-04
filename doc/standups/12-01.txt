@@ -1,3 +1,10 @@
 Name: Kazi Samin
 Finished bundling course and session function
 Next: Implement RecyclerView for timeline page
+
+Name: Ashvini Hunagund
+Today: went to office hours to ask for clarification on an adpater issue (with recycler view) in android studio
+- refactored login module
+- worked on displaying generating timeline (implemented recyler view)
+Next: attend office hours for issue that occurs after refactoring and unit testing
+Blockers: None
