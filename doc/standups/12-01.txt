@@ -15,3 +15,11 @@ Today: went to office hours
 - Worked on unit tests
 Next: attend office hours for issue that occurs after refactoring and unit testing
 Blockers: None
+
+Name: Anusha Karkhanis
+Today: -went to office hours and got help with MVP refactoring
+       -refactored login module
+       -researched mockito, watched Rawad's posted video on unit testing
+       -wrote unit tests for presenter page- some of them were failing, not sure why
+Next: attend office hours to fix unit test failures as well as issues with refactoring
+Blockers: none
