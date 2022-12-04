@@ -24,12 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class AdminEdit extends AppCompatActivity {
+public class AdminEdit extends AdminDrawerBase {
     ActivityAdminEditBinding binding;
     DatabaseReference databaseReference;
     DatabaseReference dataRef;
     DatabaseReference dataRefs;
-
 
 
     @Override
@@ -37,6 +36,7 @@ public class AdminEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_admin_edit);
         binding = ActivityAdminEditBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Edit Course");
         setContentView(binding.getRoot());
 
         binding.button2.setOnClickListener(new View.OnClickListener() {

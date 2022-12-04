@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.schedulab.databinding.ActivityAddCourseBinding;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class AddCourse extends AppCompatActivity implements  View.OnClickListener {
+public class AddCourse extends DrawerBase implements  View.OnClickListener {
 
     private String course, Uid, lastCourse, lastPre;
     private EditText courseInput;
@@ -35,11 +36,13 @@ public class AddCourse extends AppCompatActivity implements  View.OnClickListene
     private AddCourseModel model;
     int num, num1;
     List<String> taken;
-
+    ActivityAddCourseBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course);
+        binding = ActivityAddCourseBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Add Course");
+        setContentView(binding.getRoot());
         model = new AddCourseModel();
 
         courseInput = (EditText) findViewById(R.id.CourseInput);

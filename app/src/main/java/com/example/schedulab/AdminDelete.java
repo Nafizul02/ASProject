@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class AdminDelete extends AppCompatActivity {
+public class AdminDelete extends AdminDrawerBase {
 
     ActivityAdminDeleteBinding binding;
     DatabaseReference databaseReference;
@@ -28,6 +28,7 @@ public class AdminDelete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_admin_delete);
         binding = ActivityAdminDeleteBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Delete Course");
         setContentView(binding.getRoot());
 
         binding.button.setOnClickListener(new View.OnClickListener() {

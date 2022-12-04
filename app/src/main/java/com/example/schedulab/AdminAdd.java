@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.schedulab.databinding.ActivityAdminAddBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdminAdd extends AppCompatActivity {
+public class AdminAdd extends AdminDrawerBase {
 
     private static final String TAG = "AdminAdd";
     private static final String KEY_NAME = "name";
@@ -40,11 +41,13 @@ public class AdminAdd extends AppCompatActivity {
     private Button back_to_all;
 
 
-
+    ActivityAdminAddBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add);
+        binding = ActivityAdminAddBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Add Course");
+        setContentView(binding.getRoot());
 
         back_to_all = findViewById(R.id.back);
         back_to_all.setOnClickListener(new View.OnClickListener() {

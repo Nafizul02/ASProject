@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.schedulab.databinding.ActivityAllCoursesBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,16 +23,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AllCourses extends AppCompatActivity {
+public class AllCourses extends AdminDrawerBase {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
     private List<Entry> myEntriesList = new ArrayList<>();
 
     private Button to_add;
+    ActivityAllCoursesBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_courses);
+        binding = ActivityAllCoursesBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("All courses");
+        setContentView(binding.getRoot());
 
         /*for ListView*/
 

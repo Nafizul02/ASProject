@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.schedulab.databinding.ActivityShowDataBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -28,18 +29,20 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class showData extends AppCompatActivity {
+public class showData extends DrawerBase {
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
 
 
     private Button logout;
-
+    ActivityShowDataBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_data);
+        binding = ActivityShowDataBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Courses Taken");
+        setContentView(binding.getRoot());
         logout = (Button) findViewById(R.id.logOut);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -32,7 +32,7 @@ import java.util.Map;
 
 
 
-public class GenerateTimeline extends AppCompatActivity {
+public class GenerateTimeline extends DrawerBase {
 
 
     ArrayList<Pair<String,String>> tableData = new ArrayList<Pair<String, String>>();
@@ -52,7 +52,8 @@ public class GenerateTimeline extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityGenerateTimelineBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_generate_timeline);
+        allocateActivityTitle("Timeline");
+        setContentView(binding.getRoot());
 
         final RecyclerView recyclerView = findViewById(R.id.timelineView);
 
@@ -141,13 +142,6 @@ public class GenerateTimeline extends AppCompatActivity {
 
             }
         });
-        binding.backbutton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(GenerateTimeline.this, RequestTimeline.class));
-            }
-        });
-
 
     }
 
