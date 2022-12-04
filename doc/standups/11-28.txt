@@ -17,3 +17,9 @@ Name: Anusha Karkhanis
 Today: Researched how to delete information from database
 Next: Finish implementing course delete page
 Blockers: None
+
+
+Chang Ma
+testing edge cases for add course
+Next: fix the error of edge cases
+Next: test edge cases for request timeline
