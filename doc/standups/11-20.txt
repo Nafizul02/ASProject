@@ -16,3 +16,9 @@ Name: Ashvini Hunagund
 Today: Had meeting about our progress, finished UI for the Displaying all courses page
 Next: UI for add courses page for admin
 Blockers: None
+
+Name: Nishu Sheth
+Today: Had meeting and discussed firebase
+Next: Make firebase
+Blockers: None
+
