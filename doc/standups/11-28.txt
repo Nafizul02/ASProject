@@ -1,0 +1,3 @@
+Name: Kazi Samin 
+Finished courses required function for timeline generation
+Next: finish bundling course and session funciton for timeline generation
