@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Patterns;
 import android.view.View;
@@ -44,8 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView register, textView5;
     private EditText editTextEmail, edittextPassword;
     private Button signIn;
+    private int click;
 
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editTextEmail = (EditText) findViewById(R.id.email);
         edittextPassword = (EditText) findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressbar);
+        //progressBar = findViewById(R.id.progressbar);
+
+        click = 0;
 
 
         presenter = new Presenter(new Model(), this);
@@ -70,11 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     public void onClick(View view) {
@@ -87,8 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String email = editTextEmail.getText().toString().trim();
                 String password = edittextPassword.getText().toString().trim();
                 if(presenter.loginButtonClicked(email, password)) {
-                    //progressBar.setVisibility(View.VISIBLE);
+
                     presenter.login(email, password);
+
                 }
                 break;
 
@@ -97,10 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
-
-
-
 
 
 
@@ -116,10 +112,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onFailure() {
-        Toast.makeText(MainActivity.this, "Failed to login, please check your credentials", Toast.LENGTH_LONG).show();
-       // progressBar.setVisibility(View.GONE);
+
+            Toast.makeText(MainActivity.this, "Failed to login, please check your credentials", Toast.LENGTH_LONG).show();
+
 
     }
+
+       // progressBar.setVisibility(View.GONE);
+
+
 
     @Override
     public void emailNotValid() {
@@ -151,11 +152,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public String getPassword(){
-        String pass = edittextPassword.getText().toString().trim();
-        return pass;
-
-    }
 
 
 }

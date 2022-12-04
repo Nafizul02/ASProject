@@ -43,7 +43,7 @@ public class StudentDefault extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.nav_courses:
                         Log.i("Menu_drawer_tag", "Courses clicked");
-                        startActivity(new Intent(StudentDefault.this, Home.class));
+                        startActivity(new Intent(StudentDefault.this, showData.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.nav_add:

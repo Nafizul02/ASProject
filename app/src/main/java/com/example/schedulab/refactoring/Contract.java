@@ -11,6 +11,8 @@ public interface Contract {
         boolean checkLogin(String email, String password);
 
 
+
+
     }
 
     public interface View{
@@ -37,6 +39,7 @@ public interface Contract {
         boolean loginButtonClicked(String email, String password);
         //check fields are valid
         //send back accordingly to view
+
 
     }
 }

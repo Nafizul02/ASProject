@@ -32,8 +32,8 @@ public class ExampleUnitTest {
 
    @Test
     public void testEmptyEmail(){
-        when(view.getEmail()).thenReturn("");
-        when(model.checkLogin("", "123456")).thenReturn(false);
+        //when(view.getEmail()).thenReturn("");
+       // when(model.checkLogin("", "123456")).thenReturn(false);
         Presenter presenter = new Presenter(model, view);
         presenter.loginButtonClicked("", "123456");
         verify(view).emailEmpty();
@@ -54,8 +54,8 @@ public class ExampleUnitTest {
 
    @Test
     public void testInvalidEmail(){
-        when(view.getEmail()).thenReturn("n");
-       when(model.checkLogin("n", "123456")).thenReturn(false);
+        //when(view.getEmail()).thenReturn("n");
+       //when(model.checkLogin("n", "123456")).thenReturn(false);
         Presenter presenter = new Presenter(model, view);
         presenter.loginButtonClicked("n", "123456" );
         verify(view).emailNotValid();
@@ -64,7 +64,7 @@ public class ExampleUnitTest {
 
     @Test
     public void testCheckLogin(){
-        when(model.checkLogin("nishu@gmail.com", "123456")).thenReturn(false);
+        //when(model.checkLogin("nishu@gmail.com", "123456")).thenReturn(false);
         Presenter presenter = new Presenter(model, view);
         presenter.login("nishu@gmail.com", "123456" );
         verify(view).onFailure();
