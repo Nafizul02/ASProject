@@ -18,3 +18,8 @@ Today: Reseached UI for displaying data
 Next: Reseach displaying nested data from firebase
 Blockers: None
 
+Name: Ashvini Hunagund
+Today: discussed firebase layout
+- had to change implementation of layout to accomadate what we agreed on for the firebase structure
+Next: research how to add information into firebase
+Blockers: none
