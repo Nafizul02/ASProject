@@ -1,3 +1,0 @@
-Name: Kazi Samin 
-Implemented navigation drawer to navigate between all pages and stories. App is mostly complete and functional.
-Next: Clear UI and design default pages for student and admin
