@@ -10,3 +10,10 @@ Today: Finished unit testing
   -Finished unit tests
  Next: Look into SharedPreferences
  Blockers: None
+
+Name: Ashvini Hunagund
+Today: attended prof and TA office hours for refactoring and unit testing issue
+- pushed work into our personal branches
+- worked out minor issues once we've merged all work together
+Next: meeting tomorrow to finalize design choices
+Blockers: None
