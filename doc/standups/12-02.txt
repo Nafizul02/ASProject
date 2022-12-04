@@ -17,3 +17,10 @@ Today: attended prof and TA office hours for refactoring and unit testing issue
 - worked out minor issues once we've merged all work together
 Next: meeting tomorrow to finalize design choices
 Blockers: None
+
+Name: Anusha Karkhanis
+Today: -attended office hours and fixed our unit testing issue
+       -finished unit tests
+       -merged our work on Github
+Next: standup meeting to discuss navigation and ensure we have a functional app
+Blockers: none
