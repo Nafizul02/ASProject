@@ -17,3 +17,9 @@ Name: Chang Ma
 Finishing my part for the project
 Next: finish my part for the project
 Blockers:None
+
+Name: Ashvini Hunagund
+Today: started implementing how to fetch user's inputs into firebase
+- attempted to add data into firebase
+Next: Attend office hours for clarification on some user stories
+Blockers: None
