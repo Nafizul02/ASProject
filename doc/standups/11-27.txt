@@ -16,3 +16,9 @@ Name: Chang Ma
 fix the bugs
 Next: finish fix bus and do more testing
 Blockers:None
+
+Name: Ashvini Hunagund
+Today: Only looked into ways to display data dynamically
+- had a meeting about progress and also discussed best ways for displaying data dynamically
+Next: start implementing the display all courses page
+Blockers: None
