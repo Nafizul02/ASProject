@@ -16,3 +16,8 @@ Name: Chang Ma
 Go to office hour for questions
 Next:Testing 
 Blockers:None
+
+Name: Ashvini Hunagund
+Today: attended office hours and fixed issue of properly connecting to firebase
+Next: try adding information into firebase again now that I'm properly connected
+Blockers: None
