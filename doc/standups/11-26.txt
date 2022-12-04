@@ -16,3 +16,8 @@ Name: Chang Ma
 Testing code
 Next: fix bugs and errors
 Blockers: None
+
+Name: Ashvini Hunagund
+Today: Worked on and finished implementing adding courses to firebase with the desired design
+Next: Look into how to dynamically display data on android studio
+Blockers: None
