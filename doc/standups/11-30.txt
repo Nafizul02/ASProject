@@ -10,3 +10,10 @@ Today: went to office hours for help on issue, and was able to fix it!
 - attemped to refactor login module
 Next: attend office hours for clarification of MVP refactoring
 Blockers: None
+
+Name: Nishu Sheth
+Today: went to office hours
+  -helped Kazi write the code to retrieve data from Firebase
+  -Started to refactor login
+Next: attend office hours for additional clarification for MVP
+Blockers: None
