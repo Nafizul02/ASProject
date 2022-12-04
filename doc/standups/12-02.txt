@@ -1,3 +1,12 @@
 Name: Kazi Samin
 Implemented RecyclerView for timeline page, Generate timeline story completed
 Next: Implement navigation drawer for navigating between pages
+
+
+Name: Nishu Sheth
+Today: Finished unit testing
+  -Couldn't figure out double click solution in office hours
+  -did research about callback methods
+  -Finished unit tests
+ Next: Look into SharedPreferences
+ Blockers: None
