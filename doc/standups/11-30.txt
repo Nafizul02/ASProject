@@ -24,3 +24,10 @@ Today: -attended TA office hours and confirmed that a course being edited/delete
        -started researching MVP and refactoring login module 
 Next: attend next TA office hours to help with refactoring login 
 Blockers: none
+
+Name: Chang Ma
+Fiexed few bugs
+Finished all the code and commit it to github
+Researched on how to merge branches
+Next: merge all the work together
+Blockers: None
