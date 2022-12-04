@@ -1,0 +1,3 @@
+Name: Kazi Samin
+Implemented RecyclerView for timeline page, Generate timeline story completed
+Next: Implement navigation drawer for navigating between pages
