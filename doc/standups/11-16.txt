@@ -18,3 +18,8 @@ Name: Nishu Sheth
 Chose UI responsibilies
 Next: Research/watch videos for assigned responsibilities
 Blockers: None
+
+Name: Ashvini Hunagund
+Today: Everyone chose their UI / page responsibilities
+Next: Work on UI for my respective chosen pages
+Blockers: None
