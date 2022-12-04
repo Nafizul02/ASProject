@@ -8,3 +8,8 @@ Today: continued and finished implementation for display courses
 - tried list view as well but same problem occurs
 Next: attend office hours tomorrow morning for the issue
 Blockers: None
+
+Name:Nishu Sheth
+Today: Helped Ashvini with displaying courses with ListView
+Next: attend office hours for additional help
+Blockers: None
