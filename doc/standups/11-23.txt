@@ -17,3 +17,8 @@ Chang Ma
 Researched and wrote codes about retrieving data
 Next:finish the code for adding course and request generatetimeline
 Blockers:None
+
+Name: Ashvini Hunagund
+Today: researched how to add upload information into firebase
+Next: start "base" implementation
+Blockers: None
