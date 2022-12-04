@@ -16,3 +16,8 @@ Name: Nishu Sheth
 Today: Worked on Login & Registration
 Next: Work on logout and navigation bar
 Blockers: None
+
+Name: Ashvini Hunagund
+Today: Nothing
+Next: Implement text inputs and buttons
+Blockers: None
