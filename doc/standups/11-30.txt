@@ -1,3 +1,12 @@
 Name: Kazi Samin
 Nothing
 Next: finish bundling course and session function for timeline generation
+
+Name: Ashvini Hunagund
+Today: went to office hours for help on issue, and was able to fix it!
+- fixed up a few design issues
+- helped team member connect to firebase 
+- assisting in debugging display courses taken
+- attemped to refactor login module
+Next: attend office hours for clarification of MVP refactoring
+Blockers: None
