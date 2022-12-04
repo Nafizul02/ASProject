@@ -7,3 +7,8 @@ Today: started implementation for displaying all courses in the system
 - found that it is crashing
 Next: fix crashing issue
 Blockers: None
+
+Name: Nishu Sheth
+Today: Finished show current courses page
+Next: work on desgin and refactoring
+Blockers: None
