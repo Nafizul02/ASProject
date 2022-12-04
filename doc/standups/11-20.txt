@@ -11,3 +11,8 @@ Name: Anusha Karkhanis
 Today: Had meeting, finalized layout for course edit and delete pages
 Next: Work on integrating edit and delete pages with course database
 Blockers: None
+
+Name: Ashvini Hunagund
+Today: Had meeting about our progress, finished UI for the Displaying all courses page
+Next: UI for add courses page for admin
+Blockers: None
