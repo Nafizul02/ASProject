@@ -1,3 +1,10 @@
 Name: Kazi Samin
 Finished courses required function for timeline generation
 Next: finish bundling course and session funciton for timeline generation
+
+Name: Ashvini Hunagund
+Today: continued and finished implementation for display courses
+- however it is now not displaying anything
+- tried list view as well but same problem occurs
+Next: attend office hours tomorrow morning for the issue
+Blockers: None
