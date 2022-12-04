@@ -17,3 +17,8 @@ Name: Ashvini Hunagund
 Today: finished layout for Displaying and Adding courses
 Next: talk about firebase (structure) layout and start implementing that
 Blockers: None
+
+Name: Nishu Sheth
+Today: Connected to firebase
+Next: Add the different children structures to firebase
+Blockers:None
