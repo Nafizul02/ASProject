@@ -24,3 +24,10 @@ Today: -attended office hours and fixed our unit testing issue
        -merged our work on Github
 Next: standup meeting to discuss navigation and ensure we have a functional app
 Blockers: none
+
+Name: Chang Ma
+Today: added a new edge case for request timeline
+went to school for standup meeting
+commit and merged the updated branches
+Next: finishing up the project and go to standupmeeting
+Blockers: None
