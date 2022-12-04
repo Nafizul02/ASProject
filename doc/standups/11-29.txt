@@ -13,3 +13,8 @@ Name:Nishu Sheth
 Today: Helped Ashvini with displaying courses with ListView
 Next: attend office hours for additional help
 Blockers: None
+
+Name: Anusha Karkhanis
+Today: Finished implementing delete course
+Next: Attend office hours to get clarification on whether if an admin edits/deletes a course, it should be edited/deleted from the students list of courses taken as well
+Blockers: None
