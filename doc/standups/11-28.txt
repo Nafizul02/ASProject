@@ -1,3 +1,9 @@
 Name: Kazi Samin 
 Created mock User and course classes and obtained firebase data 
 Next: Finish courses required function for timeline generation
+
+Name: Ashvini Hunagund
+Today: started implementation for displaying all courses in the system
+- found that it is crashing
+Next: fix crashing issue
+Blockers: None
