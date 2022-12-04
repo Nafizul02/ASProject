@@ -41,6 +41,11 @@ public class DrawerBase extends AppCompatActivity implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch(item.getItemId()){
+            case R.id.nav_profile:
+                Log.i("Menu_drawer_tag", "Profile clicked");
+                startActivity(new Intent(DrawerBase.this, StudentDefault.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
             case R.id.nav_courses:
                 Log.i("Menu_drawer_tag", "Courses clicked");
                 startActivity(new Intent(DrawerBase.this, showData.class));
