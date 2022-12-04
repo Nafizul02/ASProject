@@ -19,6 +19,6 @@ Blockers: None
 
 Name: Nishu Sheth
 Today: Had meeting and discussed firebase
-Next: Make firebase
+Next: Add everyone to firebase
 Blockers: None
 
