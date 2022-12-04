@@ -23,3 +23,8 @@ Today: -went to office hours and got help with MVP refactoring
        -wrote unit tests for presenter page- some of them were failing, not sure why
 Next: attend office hours to fix unit test failures as well as issues with refactoring
 Blockers: none
+
+
+Name: Chang Ma
+Today: Merged branches
+Next: go through the merged package and check bugs
