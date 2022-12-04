@@ -8,3 +8,10 @@ Today: went to office hours to ask for clarification on an adpater issue (with r
 - worked on displaying generating timeline (implemented recyler view)
 Next: attend office hours for issue that occurs after refactoring and unit testing
 Blockers: None
+
+Name: Nishu Sheth
+Today: went to office hours
+- refactored login module
+- Worked on unit tests
+Next: attend office hours for issue that occurs after refactoring and unit testing
+Blockers: None
