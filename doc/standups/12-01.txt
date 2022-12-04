@@ -1,0 +1,3 @@
+Name: Kazi Samin
+Finished bundling course and session function
+Next: Implement RecyclerView for timeline page
