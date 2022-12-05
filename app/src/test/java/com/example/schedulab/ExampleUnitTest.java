@@ -63,11 +63,27 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void testCheckLogin(){
-        //when(model.checkLogin("nishu@gmail.com", "123456")).thenReturn(false);
+    public void testCheckLoginFalse(){
+        when(model.checkLogin("nishu@gmail.com", "123456")).thenReturn(false);
         Presenter presenter = new Presenter(model, view);
         presenter.login("nishu@gmail.com", "123456" );
         verify(view).onFailure();
+
+    }
+
+    @Test
+    public void testCheckLoginTrue(){
+        when(model.checkLogin("nishu@gmail.com", "123456")).thenReturn(true);
+        Presenter presenter = new Presenter(model, view);
+        presenter.login("nishu@gmail.com", "123456" );
+        verify(view).onSuccess();
+
+    }
+
+    @Test
+    public void testFieldsValid(){
+        Presenter presenter = new Presenter(model, view);
+        assertTrue(presenter.loginButtonClicked("nishu@gmail.com", "123456" ));
 
     }
 

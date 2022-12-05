@@ -1,6 +1,8 @@
 package com.example.schedulab;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -45,9 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView register, textView5;
     private EditText editTextEmail, edittextPassword;
     private Button signIn;
-    private int click;
 
-    //private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editTextEmail = (EditText) findViewById(R.id.email);
         edittextPassword = (EditText) findViewById(R.id.password);
-        //progressBar = findViewById(R.id.progressbar);
-
-        click = 0;
 
 
         presenter = new Presenter(new Model(), this);
+
 
 
     }
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(presenter.loginButtonClicked(email, password)) {
 
                     presenter.login(email, password);
+
 
                 }
                 break;
