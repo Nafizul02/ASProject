@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity implements View.OnClickListener {
     private TextView login, registerUser;
@@ -88,7 +90,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             return;
         }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        Pattern pattern = Pattern.compile("[a-z]+@[a-z]+\\.com");
+        Matcher matcher = pattern.matcher(email);
+        if (!matcher.matches()) {
             editTextEmail.setError("Please provide a valid email");
             editTextEmail.requestFocus();
             return;
