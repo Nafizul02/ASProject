@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.schedulab.databinding.ActivityRequestTimelineBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ import java.lang.ref.Reference;
 import java.util.Locale;
 
 
-public class RequestTimeline extends AppCompatActivity implements  View.OnClickListener {
+public class RequestTimeline extends DrawerBase implements  View.OnClickListener {
 
     private Button Generate;
     public String s;
@@ -37,12 +38,13 @@ public class RequestTimeline extends AppCompatActivity implements  View.OnClickL
     private boolean b;
     Context myContext = this;
 
-
+    ActivityRequestTimelineBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_request_timeline);
+        binding = ActivityRequestTimelineBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Request Timeline");
+        setContentView(binding.getRoot());
 
         input = (EditText) findViewById(R.id.CourseG);
 

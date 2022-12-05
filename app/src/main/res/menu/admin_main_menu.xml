@@ -4,6 +4,11 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/nav_admin_profile"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Profile" />
+
+        <item
             android:id="@+id/nav_admin_all"
             android:icon="@drawable/ic_baseline_assignment_24"
             android:title="See all courses" />
