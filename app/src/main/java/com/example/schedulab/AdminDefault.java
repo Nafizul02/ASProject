@@ -15,6 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.schedulab.databinding.ActivityAdminDefaultBinding;
 import com.example.schedulab.databinding.ActivityStudentDefaultBinding;
+import com.example.schedulab.AdminDrawerBase;
 import com.google.android.material.navigation.NavigationView;
 
 public class AdminDefault extends AdminDrawerBase {
