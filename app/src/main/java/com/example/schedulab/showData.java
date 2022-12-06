@@ -43,14 +43,7 @@ public class showData extends DrawerBase {
         binding = ActivityShowDataBinding.inflate(getLayoutInflater());
         allocateActivityTitle("Courses Taken");
         setContentView(binding.getRoot());
-        logout = (Button) findViewById(R.id.logOut);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(showData.this, MainActivity.class));
-            }
-        });
+
 
         listView = (ListView) findViewById(R.id.listviewtext);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
