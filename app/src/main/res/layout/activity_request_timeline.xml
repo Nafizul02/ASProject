@@ -7,7 +7,7 @@
     tools:context=".RequestTimeline">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_prereq"
         android:layout_width="350sp"
         android:layout_height="50sp"
         android:text="Generate Timeline"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/text_prereq"
         app:layout_constraintVertical_bias="0.895"
         tools:ignore="TextContrastCheck" />
 
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/text_prereq"
         app:layout_constraintVertical_bias="0.025" />
 
 

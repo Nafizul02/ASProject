@@ -9,7 +9,7 @@
     tools:context=".AdminEdit">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_prereq"
         android:layout_width="263dp"
         android:layout_height="55dp"
         android:fontFamily="sans-serif-thin"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/text_prereq" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"

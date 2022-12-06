@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.schedulab.databinding.ActivityAddCourseBinding;
+import com.example.schedulab.StudentDefault;
+import com.example.schedulab.UserAdd;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +26,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class AddCourse extends DrawerBase implements  View.OnClickListener {
+public class AddCourse extends com.example.schedulab.DrawerBase implements  View.OnClickListener {
 
     private String course, Uid, lastCourse, lastPre;
     private EditText courseInput;
@@ -33,7 +35,7 @@ public class AddCourse extends DrawerBase implements  View.OnClickListener {
   //  private FirebaseUser fUser;
     Boolean b, b1;
 
-    private AddCourseModel model;
+    private com.example.schedulab.AddCourseModel model;
     int num, num1;
     List<String> taken;
     ActivityAddCourseBinding binding;
@@ -43,7 +45,7 @@ public class AddCourse extends DrawerBase implements  View.OnClickListener {
         binding = ActivityAddCourseBinding.inflate(getLayoutInflater());
         allocateActivityTitle("Add Course");
         setContentView(binding.getRoot());
-        model = new AddCourseModel();
+        model = new com.example.schedulab.AddCourseModel();
 
         courseInput = (EditText) findViewById(R.id.CourseInput);
 
@@ -70,14 +72,14 @@ public class AddCourse extends DrawerBase implements  View.OnClickListener {
             courseInput.requestFocus();
             return;
         }
-        model.getCoursesByCourseCode(courseCode, (List<Course> allCourses) -> {
+        model.getCoursesByCourseCode(courseCode, (List<com.example.schedulab.Course> allCourses) -> {
             if (allCourses == null) {
                 courseInput.setError("Course you entered does not exist");
                 courseInput.requestFocus();
                 return;
             }
 
-            Course toAdd = allCourses.get(0);
+            com.example.schedulab.Course toAdd = allCourses.get(0);
             model.getUserById(Uid, (UserAdd user) -> {
                 for (int i = 1; i < allCourses.size(); i++) {
                     if (!user.coursesTaken.contains(allCourses.get(i).code)) {

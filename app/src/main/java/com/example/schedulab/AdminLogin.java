@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +43,7 @@ public class AdminLogin extends AppCompatActivity implements View.OnClickListene
         signIn = (Button) findViewById(R.id.signIn_a);
         signIn.setOnClickListener(this);
 
-        textView = (TextView) findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.text_prereq);
         textView.setOnClickListener(this);
 
         editTextEmail = (EditText) findViewById(R.id.email_a);
@@ -62,7 +61,7 @@ public class AdminLogin extends AppCompatActivity implements View.OnClickListene
             case R.id.signIn_a:
                 userLogin();
                 break;
-            case R.id.textView:
+            case R.id.text_prereq:
                 startActivity(new Intent(this, LoginType.class));
                 break;
         }
