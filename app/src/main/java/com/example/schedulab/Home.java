@@ -29,14 +29,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        logout = (Button) findViewById(R.id.logOut);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Home.this, LoginType.class));
-            }
-        });
 
 
 
