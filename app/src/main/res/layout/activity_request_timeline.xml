@@ -25,31 +25,42 @@
         android:id="@+id/Generate"
         android:layout_width="350dp"
         android:layout_height="60dp"
+        android:backgroundTint="#6a3286"
         android:onClick="Generate"
         android:text="Generate"
-        android:backgroundTint="#6a3286"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.043"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/CourseG"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
         android:ems="10"
-        android:hint="Enter the course codes to generate timeline"
+        android:hint="Enter the Course Codes"
         android:inputType=""
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/Generate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Enter the course codes above to generate the timeline"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseG" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
