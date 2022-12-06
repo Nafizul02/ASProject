@@ -11,7 +11,7 @@
         android:layout_width="350sp"
         android:layout_height="50sp"
         android:text="Add Course"
-        android:textColor="#2196F3"
+        android:textColor="#9C27B0"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,29 +24,16 @@
     <Button
         android:id="@+id/AddC"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:onClick="onClick"
         android:text="Add"
+        android:backgroundTint="#9C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.367"
-        tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:onClick="Back"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.895"
         tools:ignore="TextContrastCheck" />
 
     <EditText
