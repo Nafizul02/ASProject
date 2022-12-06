@@ -8,13 +8,13 @@
     android:gravity="bottom">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="201dp"
         android:layout_height="wrap_content"
-        android:text="Go to"
-        android:textSize="25dp"
-        android:textStyle="italic"
+        android:fontFamily="@font/alex_brush"
+        android:text="CoursePath"
         android:textColor="@color/white"
-        >
+        android:textSize="40sp"
+        android:textStyle="bold|italic">
 
     </TextView>
 

@@ -56,6 +56,35 @@
     <string name="please_select_user_type">Please select user type</string>
     <string name="administrator">Administrator</string>
     <string name="todo">TODO</string>
+    <string name="add_course_student">Add Course</string>
+    <string name="enter_the_course_code_student">Enter the Course Code</string>
+    <string name="add_course">Add Course</string>
+    <string name="course_name_admin">Enter the Course Name</string>
+    <string name="course_code_admin">Enter the Course Code</string>
+    <string name="course_prerequisites_admin">Enter the Course Prerequisites</string>
+    <string name="add_course_admin">Add Course</string>
+    <string name="submit_admin">Submit</string>
+    <string name="select_offering_sessions_admin">Select Offering Sessions</string>
+    <string name="fall_admin">Fall</string>
+    <string name="winter_admin">Winter</string>
+    <string name="summer_admin">Summer</string>
+    <string name="if_there_are_none_please_type_quot_none_quot_admin">If there are none, please type \"none\"</string>
+    <string name="please_enter_as_all_uppercase_and_seperate_by_quot_quot_admin">Please enter as all uppercase and seperate by \",\"</string>
+    <string name="please_enter_as_all_uppercase_admin">Please enter as all uppercase</string>
+    <string name="delete_course_edit">Delete Course</string>
+    <string name="delete_course_delete">Delete Course</string>
+    <string name="enter_the_course_code_delete">Enter the Course Code</string>
+    <string name="edit_course_edit">Edit Course</string>
+    <string name="enter_current_course_code_edit">Enter Current Course Code</string>
+    <string name="enter_the_new_name_edit">Enter the New Name</string>
+    <string name="enter_the_new_course_code_edit">Enter the New Course Code</string>
+    <string name="enter_all_the_course_prerequisites_edit">Enter all the Course Prerequisites.</string>
+    <string name="submit_edit">Submit</string>
+    <string name="fall_edit">Fall</string>
+    <string name="select_all_the_offering_sessions_edit">Select all the Offering Sessions</string>
+    <string name="winter_edit">Winter</string>
+    <string name="summer_edit">Summer</string>
+    <string name="enter_course_prerequisites_above_separated_by_quot_quot_if_no_prerequisites_exist_enter_quot_none_quot_edit">Enter course prerequisites above, separated by \",\". If no prerequisites exist, enter \"none\".</string>
 
 
 </resources>

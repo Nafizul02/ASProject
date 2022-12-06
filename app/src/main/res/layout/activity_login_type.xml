@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="@string/please_select_user_type"
+        android:text="Please Select User Type"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +39,13 @@
         android:layout_height="154dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
+        android:contentDescription="@string/todo"
+        android:foregroundTint="#6A3286"
         android:scaleType="centerCrop"
+        app:tint="#6A3286"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/ic_baseline_manage_accounts_24"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/ic_baseline_manage_accounts_24" />
 
     <ImageView
         android:id="@+id/Student_type"
@@ -51,10 +53,11 @@
         android:layout_height="151dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="TODO"
+        app:tint="#6A3286"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/ic_baseline_school_24"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_baseline_school_24" />
 
     <TextView
         android:id="@+id/Student"
