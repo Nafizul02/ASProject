@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.schedulab.databinding.ActivityAdminEditBinding;
+import com.example.schedulab.AdminDrawerBase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -29,7 +30,7 @@ public class AdminEdit extends AdminDrawerBase {
     DatabaseReference databaseReference;
     DatabaseReference dataRef;
     DatabaseReference dataRefs;
-
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class AdminEdit extends AdminDrawerBase {
 
     }
 
+
+
     private void editCourse(String courseToEdit, String newName, String newCode, CheckBox fall, CheckBox winter, CheckBox summer, String newPrereqs) {
         HashMap User = new HashMap();
         User.put("code", newCode);
@@ -68,53 +71,81 @@ public class AdminEdit extends AdminDrawerBase {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    String keyWeWant = childSnapshot.getKey();
-                    databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
-                    for (int i = 0; i < prereqs_list.length; i++) {
-                        databaseReference.child(keyWeWant).child("prereqs").child(String.valueOf(i)).setValue(prereqs_list[i]);
+                if (dataSnapshot.getValue() != null) {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        String keyWeWant = childSnapshot.getKey();
+                        databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
+                        if (prereqs_list.length == 1){
+                            databaseReference.child(keyWeWant).child("prereqs").child("0").setValue(prereqs_list[0]);
+                            long x = childSnapshot.child("prereqs").getChildrenCount();
+                            if (x > 1){
+                                while (x != 1){
+                                    databaseReference.child(keyWeWant).child("prereqs").child(String.valueOf(x-1)).removeValue();
+                                    x--;
+                                }
+                            }
 
-                    }
-                    if (fall.isChecked()) {
-                        databaseReference.child(keyWeWant).child("sessions").child("aFall").setValue(true);
-                    } else if (!(fall.isChecked())) {
-                        databaseReference.child(keyWeWant).child("sessions").child("aFall").setValue(false);
-                    }
-                    if (summer.isChecked()) {
-                        databaseReference.child(keyWeWant).child("sessions").child("cSummer").setValue(true);
-                    } else if (!(summer.isChecked())) {
-                        databaseReference.child(keyWeWant).child("sessions").child("cSummer").setValue(false);
-                    }
-                    if (winter.isChecked()) {
-                        databaseReference.child(keyWeWant).child("sessions").child("bWinter").setValue(true);
-                    } else if (!(winter.isChecked())) {
-                        databaseReference.child(keyWeWant).child("sessions").child("bWinter").setValue(false);
-                    }
+                        }
+                        else{
+                            for (i = 0; i < prereqs_list.length; i++) {
+                                databaseReference.child(keyWeWant).child("prereqs").child(String.valueOf(i)).setValue(prereqs_list[i]);
 
-
-                    databaseReference.child(keyWeWant).updateChildren(User).addOnCompleteListener(new OnCompleteListener() {
-                        @Override
-                        public void onComplete(@NonNull Task task) {
-                            if (task.isSuccessful()) {
-                                binding.editTextTextPersonName.setText("");
-                                binding.editTextTextPersonName2.setText("");
-                                binding.editTextTextPersonName3.setText("");
-                                binding.editTextTextPersonName5.setText("");
-                                binding.checkBox.setChecked(false);
-                                binding.checkBox2.setChecked(false);
-                                binding.checkBox3.setChecked(false);
-                                Toast.makeText(AdminEdit.this, "Successfully edited course!", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                Toast.makeText(AdminEdit.this, "Failed to edit course", Toast.LENGTH_SHORT).show();
+                            }
+                            long y = childSnapshot.child("prereqs").getChildrenCount();
+                            if (y > prereqs_list.length){
+                                while (y != prereqs_list.length){
+                                    databaseReference.child(keyWeWant).child("prereqs").child(String.valueOf(y-1)).removeValue();
+                                    y--;
+                                }
 
                             }
 
-
                         }
-                    });
+
+                        if (fall.isChecked()) {
+                            databaseReference.child(keyWeWant).child("sessions").child("aFall").setValue(true);
+                        } else if (!(fall.isChecked())) {
+                            databaseReference.child(keyWeWant).child("sessions").child("aFall").setValue(false);
+                        }
+                        if (summer.isChecked()) {
+                            databaseReference.child(keyWeWant).child("sessions").child("cSummer").setValue(true);
+                        } else if (!(summer.isChecked())) {
+                            databaseReference.child(keyWeWant).child("sessions").child("cSummer").setValue(false);
+                        }
+                        if (winter.isChecked()) {
+                            databaseReference.child(keyWeWant).child("sessions").child("bWinter").setValue(true);
+                        } else if (!(winter.isChecked())) {
+                            databaseReference.child(keyWeWant).child("sessions").child("bWinter").setValue(false);
+                        }
 
 
+                        databaseReference.child(keyWeWant).updateChildren(User).addOnCompleteListener(new OnCompleteListener() {
+                            @Override
+                            public void onComplete(@NonNull Task task) {
+                                if (task.isSuccessful()) {
+                                    binding.editTextTextPersonName.setText("");
+                                    binding.editTextTextPersonName2.setText("");
+                                    binding.editTextTextPersonName3.setText("");
+                                    binding.editTextTextPersonName5.setText("");
+                                    binding.checkBox.setChecked(false);
+                                    binding.checkBox2.setChecked(false);
+                                    binding.checkBox3.setChecked(false);
+                                    Toast.makeText(AdminEdit.this, "Successfully edited course!", Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Toast.makeText(AdminEdit.this, "Failed to edit course", Toast.LENGTH_SHORT).show();
+
+                                }
+
+
+                            }
+                        });
+
+
+                    }
+                }
+                else{
+                    Toast.makeText(AdminEdit.this, "Course does not exist", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -132,7 +163,7 @@ public class AdminEdit extends AdminDrawerBase {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     String userKey = userSnapshot.getKey();
-                    DataSnapshot coursesTakenSnapshot = userSnapshot.child("CoursesTaken");
+                    DataSnapshot coursesTakenSnapshot = userSnapshot.child("coursesTaken");
                     for (DataSnapshot coursesSnapshot : coursesTakenSnapshot.getChildren()){
 
                         String keyToUse = (String) coursesSnapshot.getKey();
@@ -142,7 +173,7 @@ public class AdminEdit extends AdminDrawerBase {
 
                             dataRef = FirebaseDatabase.getInstance().getReference("Users");
 
-                            dataRef.child(userKey).child("CoursesTaken").child(keyToUse).setValue(newCode).addOnCompleteListener(new OnCompleteListener() {
+                            dataRef.child(userKey).child("coursesTaken").child(keyToUse).setValue(newCode).addOnCompleteListener(new OnCompleteListener() {
                                 @Override
                                 public void onComplete(@NonNull Task task) {
                                     if (task.isSuccessful()){

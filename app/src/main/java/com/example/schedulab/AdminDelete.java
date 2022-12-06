@@ -47,23 +47,28 @@ public class AdminDelete extends AdminDrawerBase {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    String keyWeWant = childSnapshot.getKey();
-                    databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
-                    databaseReference.child(keyWeWant).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                binding.editTextTextPersonName6.setText("");
-                                Toast.makeText(AdminDelete.this, "Successfully deleted course!", Toast.LENGTH_SHORT).show();
+                if (dataSnapshot.getValue() != null) {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        String keyWeWant = childSnapshot.getKey();
+                        databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
+                        databaseReference.child(keyWeWant).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    binding.editTextTextPersonName6.setText("");
+                                    Toast.makeText(AdminDelete.this, "Successfully deleted course!", Toast.LENGTH_SHORT).show();
 
-                            } else {
-                                Toast.makeText(AdminDelete.this, "Failed to delete course", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(AdminDelete.this, "Failed to delete course", Toast.LENGTH_SHORT).show();
 
 
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
+                }
+                else{
+                    Toast.makeText(AdminDelete.this, "Course does not exist", Toast.LENGTH_SHORT).show();
                 }
             }
 

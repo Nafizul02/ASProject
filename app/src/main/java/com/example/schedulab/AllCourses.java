@@ -28,7 +28,6 @@ public class AllCourses extends AdminDrawerBase {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
     private List<Entry> myEntriesList = new ArrayList<>();
 
-    private Button to_add;
     ActivityAllCoursesBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +36,6 @@ public class AllCourses extends AdminDrawerBase {
         allocateActivityTitle("All courses");
         setContentView(binding.getRoot());
 
-        /*for ListView*/
-
-
-
-        //to make add button work
-        to_add = findViewById(R.id.to_admin_add);
-        to_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent_add = new Intent(AllCourses.this, AdminAdd.class);
-                startActivity(intent_add);
-            }
-        });
 
         /*remaining code goes here*/
 

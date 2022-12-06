@@ -40,8 +40,8 @@ public class AllCoursesAdapter extends RecyclerView.Adapter<AllCoursesAdapter.Al
         Entry myEntries = entries.get(position);
 
         //setting user details to TextViews
-        holder.courseName.setText("Name: " + myEntries.getName());
-        holder.courseCode.setText("Course Code: " + myEntries.getCode());
+        holder.courseName.setText(myEntries.getName());
+        holder.courseCode.setText(myEntries.getCode());
 
         String displaySessions = "";
         Map<String, Boolean> sessInput = myEntries.getSessions();
@@ -59,7 +59,7 @@ public class AllCoursesAdapter extends RecyclerView.Adapter<AllCoursesAdapter.Al
             }
         }
 
-        displaySessions = "Sessions Offered: " + displaySessions;
+        //displaySessions = "Sessions Offered: " + displaySessions;
 
         holder.courseSessions.setText(displaySessions);
 
@@ -72,7 +72,7 @@ public class AllCoursesAdapter extends RecyclerView.Adapter<AllCoursesAdapter.Al
                 displayPrereq = displayPrereq + ",  " + preInput.get(c);
         }
 
-        displayPrereq = "Prerequisites: " + displayPrereq;
+        //displayPrereq = "Prerequisites: " + displayPrereq;
 
         holder.coursePrereq.setText(displayPrereq);
 
