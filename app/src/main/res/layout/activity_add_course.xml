@@ -27,7 +27,7 @@
         android:layout_height="60dp"
         android:onClick="onClick"
         android:text="Add"
-        android:backgroundTint="#9C27B0"
+        android:backgroundTint="#6A3286"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
