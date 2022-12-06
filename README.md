@@ -7,7 +7,7 @@ Anusha Karkhanis
 Ashvini Hunagund
 Chang Ma
 
-Preferred emulator: Pixel 3a Tiramisu privacy sandbox (so design doesn't get cut off)
+Required emulator: Pixel 3a Tiramisu privacy sandbox (so design doesn't get cut off)
 
 Register email for our "domain" regex requirements are (a-z lowercase string (no spaces)@something(lowercase).com)
 Example email(Already registered): johndoe@gmail.com
