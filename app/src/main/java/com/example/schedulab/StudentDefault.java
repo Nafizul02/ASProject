@@ -22,8 +22,11 @@ public class StudentDefault extends DrawerBase {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         binding = ActivityStudentDefaultBinding.inflate(getLayoutInflater());
         allocateActivityTitle("Student Dashboard");
         setContentView(binding.getRoot());
+
     }
 }

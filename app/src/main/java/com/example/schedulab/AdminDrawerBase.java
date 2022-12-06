@@ -40,9 +40,14 @@ public class AdminDrawerBase extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.nav_admin_profile:
+                Log.i("Admin_menu_drawer_tag", "Profile clicked");
+                startActivity(new Intent(AdminDrawerBase.this, com.example.schedulab.AdminDefault.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
             case R.id.nav_admin_all:
                 Log.i("Admin_menu_drawer_tag", "All courses clicked");
-                startActivity(new Intent(AdminDrawerBase.this, AllCourses.class));
+                startActivity(new Intent(AdminDrawerBase.this, com.example.schedulab.AllCourses.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_add:
@@ -52,7 +57,7 @@ public class AdminDrawerBase extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nav_edit:
                 Log.i("Admin_menu_drawer_tag", "Edit clicked");
-                startActivity(new Intent(AdminDrawerBase.this, AdminEdit.class));
+                startActivity(new Intent(AdminDrawerBase.this, com.example.schedulab.AdminEdit.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_delete:
@@ -62,7 +67,7 @@ public class AdminDrawerBase extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nav_logout:
                 Log.i("Admin_menu_drawer_tag", "Logout clicked");
-                startActivity(new Intent(AdminDrawerBase.this, AdminLogin.class));
+                startActivity(new Intent(AdminDrawerBase.this, com.example.schedulab.AdminLogin.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
         }

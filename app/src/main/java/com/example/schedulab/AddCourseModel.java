@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 
 import androidx.annotation.NonNull;
 
+import com.example.schedulab.UserAdd;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -35,17 +36,17 @@ public class AddCourseModel {
     /*
         Return a list of ALL the courses from firebase
      */
-    public void getCoursesByCourseCode(String courseCode, Consumer<List<Course>> callback) {
+    public void getCoursesByCourseCode(String courseCode, Consumer<List<com.example.schedulab.Course>> callback) {
 
         coursesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Map<String, Course> allCourses = new HashMap<>();
+                Map<String, com.example.schedulab.Course> allCourses = new HashMap<>();
                 Boolean has_this_course = false;
                 for (DataSnapshot courseSnapShot: snapshot.getChildren()) {
                     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@");
                     System.out.println(courseSnapShot);
-                    Course course = courseSnapShot.getValue(Course.class);
+                    com.example.schedulab.Course course = courseSnapShot.getValue(com.example.schedulab.Course.class);
                     allCourses.put(course.code, course);
                     if (course.code.equals(courseCode))
                         has_this_course = true;
@@ -59,7 +60,7 @@ public class AddCourseModel {
 
 
 
-                List<Course> result = new ArrayList<>();
+                List<com.example.schedulab.Course> result = new ArrayList<>();
 
                 Queue<String> q = new LinkedList<>();
                 String curr = courseCode;
@@ -67,7 +68,7 @@ public class AddCourseModel {
                 q.offer(curr);
                 while (!q.isEmpty()) {
                     curr = q.poll();
-                    Course course = allCourses.get(curr);
+                    com.example.schedulab.Course course = allCourses.get(curr);
                     result.add(course);
                     System.out.println("@@@@@@@@@@@@@@@@@@@@@@@");
                     System.out.println(course);
